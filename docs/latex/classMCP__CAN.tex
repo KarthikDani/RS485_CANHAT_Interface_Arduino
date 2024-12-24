@@ -1,0 +1,97 @@
+\doxysection{MCP\+\_\+\+CAN Class Reference}
+\hypertarget{classMCP__CAN}{}\label{classMCP__CAN}\index{MCP\_CAN@{MCP\_CAN}}
+
+
+{\ttfamily \#include $<$mcp\+\_\+can.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} \mbox{\hyperlink{classMCP__CAN_a744792a91a4604e22132f787dd2114b0}{begin}} (\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} speedset)
+\item 
+\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} \mbox{\hyperlink{classMCP__CAN_a1a33d004f19f528f2c09344c890e16ec}{init\+\_\+\+Mask}} (\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} num, \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} ext, \mbox{\hyperlink{mcp__can__dfs_8h_a25ff3c0f78edb856f90b536f50e7ca18}{INT32U}} ul\+Data)
+\item 
+\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} \mbox{\hyperlink{classMCP__CAN_a6a007f4c9a76106c39e6cf646fa7f8f8}{init\+\_\+\+Filt}} (\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} num, \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} ext, \mbox{\hyperlink{mcp__can__dfs_8h_a25ff3c0f78edb856f90b536f50e7ca18}{INT32U}} ul\+Data)
+\item 
+\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} \mbox{\hyperlink{classMCP__CAN_a8609d5dc76873e583537a5b8aeeb88e0}{send\+Msg\+Buf}} (\mbox{\hyperlink{mcp__can__dfs_8h_a25ff3c0f78edb856f90b536f50e7ca18}{INT32U}} id, \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} ext, \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} \mbox{\hyperlink{receive_8ino_a8bb3e1dd5fd30402c69fd8a9f7dd0950}{len}}, \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{receive_8ino_af5995a340a85e31e0916dd382c9b8eda}{buf}})
+\item 
+\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} \mbox{\hyperlink{classMCP__CAN_a4a09b0c8d110b0e5a3900fadc7137632}{read\+Msg\+Buf}} (\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{receive_8ino_a8bb3e1dd5fd30402c69fd8a9f7dd0950}{len}}, \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{receive_8ino_af5995a340a85e31e0916dd382c9b8eda}{buf}})
+\item 
+\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} \mbox{\hyperlink{classMCP__CAN_a92fbfba3df0703d5afafee64617f2fc6}{check\+Receive}} (void)
+\item 
+\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} \mbox{\hyperlink{classMCP__CAN_adda3718c55e02a00b67ba44c20be4057}{check\+Error}} (void)
+\item 
+\mbox{\hyperlink{mcp__can__dfs_8h_a25ff3c0f78edb856f90b536f50e7ca18}{INT32U}} \mbox{\hyperlink{classMCP__CAN_a17db0c4bf45f6e0354c22ebb7ab218d6}{get\+Can\+Id}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2karthik_2snap_2arduino_285_2Arduino_2RS485_CANHAT_Interfacing_Arduino_2RS485_CANHAT_Interfacing_Arduino_8ino-example}{/home/karthik/snap/arduino/85/\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino.\+ino}}.\end{Desc}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMCP__CAN_a744792a91a4604e22132f787dd2114b0}\label{classMCP__CAN_a744792a91a4604e22132f787dd2114b0} 
+\index{MCP\_CAN@{MCP\_CAN}!begin@{begin}}
+\index{begin@{begin}!MCP\_CAN@{MCP\_CAN}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} MCP\+\_\+\+CAN\+::begin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}}]{speedset }\end{DoxyParamCaption})}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2karthik_2snap_2arduino_285_2Arduino_2RS485_CANHAT_Interfacing_Arduino_2RS485_CANHAT_Interfacing_Arduino_8ino-example}{/home/karthik/snap/arduino/85/\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino.\+ino}}.\end{Desc}
+\Hypertarget{classMCP__CAN_adda3718c55e02a00b67ba44c20be4057}\label{classMCP__CAN_adda3718c55e02a00b67ba44c20be4057} 
+\index{MCP\_CAN@{MCP\_CAN}!checkError@{checkError}}
+\index{checkError@{checkError}!MCP\_CAN@{MCP\_CAN}}
+\doxysubsubsection{\texorpdfstring{checkError()}{checkError()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} MCP\+\_\+\+CAN\+::check\+Error (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classMCP__CAN_a92fbfba3df0703d5afafee64617f2fc6}\label{classMCP__CAN_a92fbfba3df0703d5afafee64617f2fc6} 
+\index{MCP\_CAN@{MCP\_CAN}!checkReceive@{checkReceive}}
+\index{checkReceive@{checkReceive}!MCP\_CAN@{MCP\_CAN}}
+\doxysubsubsection{\texorpdfstring{checkReceive()}{checkReceive()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} MCP\+\_\+\+CAN\+::check\+Receive (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classMCP__CAN_a17db0c4bf45f6e0354c22ebb7ab218d6}\label{classMCP__CAN_a17db0c4bf45f6e0354c22ebb7ab218d6} 
+\index{MCP\_CAN@{MCP\_CAN}!getCanId@{getCanId}}
+\index{getCanId@{getCanId}!MCP\_CAN@{MCP\_CAN}}
+\doxysubsubsection{\texorpdfstring{getCanId()}{getCanId()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mcp__can__dfs_8h_a25ff3c0f78edb856f90b536f50e7ca18}{INT32U}} MCP\+\_\+\+CAN\+::get\+Can\+Id (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2karthik_2snap_2arduino_285_2Arduino_2RS485_CANHAT_Interfacing_Arduino_2RS485_CANHAT_Interfacing_Arduino_8ino-example}{/home/karthik/snap/arduino/85/\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino.\+ino}}.\end{Desc}
+\Hypertarget{classMCP__CAN_a6a007f4c9a76106c39e6cf646fa7f8f8}\label{classMCP__CAN_a6a007f4c9a76106c39e6cf646fa7f8f8} 
+\index{MCP\_CAN@{MCP\_CAN}!init\_Filt@{init\_Filt}}
+\index{init\_Filt@{init\_Filt}!MCP\_CAN@{MCP\_CAN}}
+\doxysubsubsection{\texorpdfstring{init\_Filt()}{init\_Filt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} MCP\+\_\+\+CAN\+::init\+\_\+\+Filt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}}]{num,  }\item[{\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}}]{ext,  }\item[{\mbox{\hyperlink{mcp__can__dfs_8h_a25ff3c0f78edb856f90b536f50e7ca18}{INT32U}}}]{ul\+Data }\end{DoxyParamCaption})}
+
+\Hypertarget{classMCP__CAN_a1a33d004f19f528f2c09344c890e16ec}\label{classMCP__CAN_a1a33d004f19f528f2c09344c890e16ec} 
+\index{MCP\_CAN@{MCP\_CAN}!init\_Mask@{init\_Mask}}
+\index{init\_Mask@{init\_Mask}!MCP\_CAN@{MCP\_CAN}}
+\doxysubsubsection{\texorpdfstring{init\_Mask()}{init\_Mask()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} MCP\+\_\+\+CAN\+::init\+\_\+\+Mask (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}}]{num,  }\item[{\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}}]{ext,  }\item[{\mbox{\hyperlink{mcp__can__dfs_8h_a25ff3c0f78edb856f90b536f50e7ca18}{INT32U}}}]{ul\+Data }\end{DoxyParamCaption})}
+
+\Hypertarget{classMCP__CAN_a4a09b0c8d110b0e5a3900fadc7137632}\label{classMCP__CAN_a4a09b0c8d110b0e5a3900fadc7137632} 
+\index{MCP\_CAN@{MCP\_CAN}!readMsgBuf@{readMsgBuf}}
+\index{readMsgBuf@{readMsgBuf}!MCP\_CAN@{MCP\_CAN}}
+\doxysubsubsection{\texorpdfstring{readMsgBuf()}{readMsgBuf()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} MCP\+\_\+\+CAN\+::read\+Msg\+Buf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} \texorpdfstring{$\ast$}{*}}]{len,  }\item[{\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} \texorpdfstring{$\ast$}{*}}]{buf }\end{DoxyParamCaption})}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2karthik_2snap_2arduino_285_2Arduino_2RS485_CANHAT_Interfacing_Arduino_2RS485_CANHAT_Interfacing_Arduino_8ino-example}{/home/karthik/snap/arduino/85/\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino.\+ino}}.\end{Desc}
+\Hypertarget{classMCP__CAN_a8609d5dc76873e583537a5b8aeeb88e0}\label{classMCP__CAN_a8609d5dc76873e583537a5b8aeeb88e0} 
+\index{MCP\_CAN@{MCP\_CAN}!sendMsgBuf@{sendMsgBuf}}
+\index{sendMsgBuf@{sendMsgBuf}!MCP\_CAN@{MCP\_CAN}}
+\doxysubsubsection{\texorpdfstring{sendMsgBuf()}{sendMsgBuf()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} MCP\+\_\+\+CAN\+::send\+Msg\+Buf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{mcp__can__dfs_8h_a25ff3c0f78edb856f90b536f50e7ca18}{INT32U}}}]{id,  }\item[{\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}}]{ext,  }\item[{\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}}]{len,  }\item[{\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}} \texorpdfstring{$\ast$}{*}}]{buf }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+CAN\+\_\+\+BUS\+\_\+\+Shield/\mbox{\hyperlink{mcp__can_8h}{mcp\+\_\+can.\+h}}\item 
+CAN\+\_\+\+BUS\+\_\+\+Shield/\mbox{\hyperlink{mcp__can_8cpp}{mcp\+\_\+can.\+cpp}}\end{DoxyCompactItemize}

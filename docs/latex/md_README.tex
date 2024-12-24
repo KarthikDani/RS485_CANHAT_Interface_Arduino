@@ -1,0 +1,103 @@
+\chapter{RS485 CANHAT Interfacing with Arduino to Acess Battery Charge Information}
+\hypertarget{md_README}{}\label{md_README}\index{RS485 CANHAT Interfacing with Arduino to Acess Battery Charge Information@{RS485 CANHAT Interfacing with Arduino to Acess Battery Charge Information}}
+\label{md_README_autotoc_md0}%
+\Hypertarget{md_README_autotoc_md0}%
+
+\begin{DoxyItemize}
+\item This Project is a solution to solve the interfacing RS485 CANHAT (used \href{https://www.waveshare.com/rs485-can-hat.htm}{\texttt{ RS485 CANHAT from Waveshare}} as reference) and Arduino due to frequency mismatch.
+\item I use an Arduino-\/compatible module \href{https://robu.in/product/mcp2515-can-module-tja1050-receiver-spi-51-single-chip-program-routine-arduino/?gad_source=1&gclid=Cj0KCQiAsaS7BhDPARIsAAX5cSCodMTumVW66Wz2qvzYIydVJiuprp_vA4tSuAzYT87YtuYtevEOqtQaAkcpEALw_wcB}{\texttt{ MCP2515 CAN Module TJA1050 Receiver SPI 51 Single Chip Program Routine Arduino}} to monitor and log battery charge information transmitted over our RS485 CANHAT.
+\end{DoxyItemize}
+
+
+
+Microchip\textquotesingle{}s MCP2515 is Stand-\/\+Alone CAN Controller With SPI™ Interface, containing 2 receive buffers with prioritized message storage and 3 transmit buffers with prioritizaton and abort features.
+
+Hence Philips\textquotesingle{} TJA1050 is High speed CAN transceiver with atleast 110 connection support \href{https://robu.in/wp-content/uploads/2017/09/TJA1050.pdf}{\texttt{ it\textquotesingle{}s datasheet}}
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md2}{}\doxysection{\texorpdfstring{Features}{Features}}\label{md_README_autotoc_md2}
+
+\begin{DoxyItemize}
+\item Configuration of 500 kbps communication speed.
+\item Interrupt-\/driven mechanism for CAN message reception.
+\item Receives and scales raw battery charge information from CAN message.
+\item Logs raw CAN message data and scaled battery charge info (in \%)
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md4}{}\doxysection{\texorpdfstring{Installation}{Installation}}\label{md_README_autotoc_md4}
+
+\begin{DoxyEnumerate}
+\item Install the \doxylink{classMCP__CAN}{MCP\+\_\+\+CAN} library in your Arduino IDE\+:
+\begin{DoxyItemize}
+\item Download the CAN BUS Shield Compatible library\+: \href{CAN.zip}{\texttt{ CAN.\+zip}}
+\item Go to {\bfseries{Sketch \texorpdfstring{$>$}{>} Include Library \texorpdfstring{$>$}{>} Add .ZIP Library}}.
+\item Search for path where the file is downloaded and install it.
+\end{DoxyItemize}
+\item Connecting CAN-\/\+BUS Shield Arduino\+:
+\end{DoxyEnumerate}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{MCP2515 CAN Module Pin}}   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Arduino Pin}}    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{MCP2515 CAN Module Pin}}   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ {\bfseries{Arduino Pin}}    }\\\cline{1-2}
+\endhead
+VCC   &5V    \\\cline{1-2}
+GND   &GND    \\\cline{1-2}
+CS   &Pin 10    \\\cline{1-2}
+SCK   &Pin 13    \\\cline{1-2}
+MOSI   &Pin 11    \\\cline{1-2}
+MISO   &Pin 12    \\\cline{1-2}
+INT   &Pin 2   \\\cline{1-2}
+\end{longtabu}
+
+
+
+\begin{DoxyEnumerate}
+\item Upload the code to Arduino.
+\end{DoxyEnumerate}\hypertarget{md_README_autotoc_md5}{}\doxysection{\texorpdfstring{Code Outline}{Code Outline}}\label{md_README_autotoc_md5}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{Interrupt Handling}}\+:
+\begin{DoxyItemize}
+\item The function {\ttfamily MCP2515\+\_\+\+ISR} sets a flag when a CAN message is received.
+\item The main loop checks this flag to process the message.
+\end{DoxyItemize}
+\item {\bfseries{CAN Message Parsing}}\+:
+\begin{DoxyItemize}
+\item The function {\ttfamily CAN.\+read\+Msg\+Buf} reads the received CAN message into a buffer.
+\item The CAN ID is fetched using {\ttfamily CAN.\+get\+Can\+Id()}.
+\end{DoxyItemize}
+\item {\bfseries{Battery Charge Processing}}\+:
+\begin{DoxyItemize}
+\item If the CAN ID matches an id for example {\ttfamily 0x100}, the code interprets the first two bytes of the message as the battery charge value.
+\item {\bfseries{Byte 0}}\+: Lower byte of the battery charge value.
+\item {\bfseries{Byte 1}}\+: Higher byte of the battery charge value.
+\item The charge is scaled by {\ttfamily 100.\+0} to convert it to a percentage.
+\end{DoxyItemize}
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md7}{}\doxysection{\texorpdfstring{Example Output of Receiving a CAN message from the battery charge sender.}{Example Output of Receiving a CAN message from the battery charge sender.}}\label{md_README_autotoc_md7}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{-\/\ CAN\_BUS\ GET\ DATA\ -\/}
+\DoxyCodeLine{CAN\ ID:\ 0x100}
+\DoxyCodeLine{Data\ Length:\ 2}
+\DoxyCodeLine{Data:\ C8\ 00\ }
+\DoxyCodeLine{Battery\ Charge:\ 2.00\ \%}
+
+\end{DoxyCode}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md_README_autotoc_md9}{}\doxysection{\texorpdfstring{License}{License}}\label{md_README_autotoc_md9}
+This project is open-\/source and free to use \mbox{[}MIT License\mbox{]}(LICENSE).
+
+\DoxyHorRuler{0}
+ 

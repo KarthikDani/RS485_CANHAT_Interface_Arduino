@@ -1,0 +1,1777 @@
+\doxysection{CAN\+\_\+\+BUS\+\_\+\+Shield/mcp\+\_\+can\+\_\+dfs.h File Reference}
+\hypertarget{mcp__can__dfs_8h}{}\label{mcp__can__dfs_8h}\index{CAN\_BUS\_Shield/mcp\_can\_dfs.h@{CAN\_BUS\_Shield/mcp\_can\_dfs.h}}
+{\ttfamily \#include $<$arduino.\+h$>$}\newline
+{\ttfamily \#include $<$SPI.\+h$>$}\newline
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+Include dependency graph for mcp\+\_\+can\+\_\+dfs.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{mcp__can__dfs_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mcp__can__dfs_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a25ff3c0f78edb856f90b536f50e7ca18}{INT32U}}~unsigned long
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}~unsigned char
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ac80a3592e72fd96b772ee47a7d8e0d0a}{DEBUG\+\_\+\+MODE}}~1
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a7cf200ffe39222d84a96caa45ea0974b}{TIMEOUTVALUE}}~50
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a1253d918bad50515a17845ded3dfb041}{MCP\+\_\+\+SIDH}}~0
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_aebb1817d5c24951ebf398a342a4af650}{MCP\+\_\+\+SIDL}}~1
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_aa6059e32c37e0ca64743c50136dfee4c}{MCP\+\_\+\+EID8}}~2
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a66c75ffbde4e8b677fdbddf13d088bcd}{MCP\+\_\+\+EID0}}~3
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ac1d2c859504db3de132548f32b4f4e5e}{MCP\+\_\+\+TXB\+\_\+\+EXIDE\+\_\+M}}~0x08                                        /\texorpdfstring{$\ast$}{*} In TXBn\+SIDL                  \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a630282e14cd74d1c2785df85585e2592}{MCP\+\_\+\+DLC\+\_\+\+MASK}}~0x0F                                        /\texorpdfstring{$\ast$}{*} 4 LSBits                     \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a446f8a40b075ae3d1277cba6628d9d54}{MCP\+\_\+\+RTR\+\_\+\+MASK}}~0x40                                        /\texorpdfstring{$\ast$}{*} (1$<$$<$6) Bit 6                 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a12561a183e93aa0207ef353517bf2614}{MCP\+\_\+\+RXB\+\_\+\+RX\+\_\+\+ANY}}~0x60
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a2f18687a5ae7de0ccd920091f6f689f5}{MCP\+\_\+\+RXB\+\_\+\+RX\+\_\+\+EXT}}~0x40
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a00e3a0df5be34b1604196257cd006b12}{MCP\+\_\+\+RXB\+\_\+\+RX\+\_\+\+STD}}~0x20
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a4ed3076511142d0b372f7a3dce0edead}{MCP\+\_\+\+RXB\+\_\+\+RX\+\_\+\+STDEXT}}~0x00
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a616f2c08db5827313e5111cf9565676d}{MCP\+\_\+\+RXB\+\_\+\+RX\+\_\+\+MASK}}~0x60
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a5c2f5d36953ddbc06a43f77b43d93912}{MCP\+\_\+\+RXB\+\_\+\+BUKT\+\_\+\+MASK}}~(1$<$$<$2)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ae7f95f3f85a175ea45062de90b8ccc4f}{MCP\+\_\+\+TXB\+\_\+\+TXBUFE\+\_\+M}}~0x80
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a5bcfb7682407394a460dc4b9ad0b44c0}{MCP\+\_\+\+TXB\+\_\+\+ABTF\+\_\+M}}~0x40
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a31be6764ba472392b730b9e5d8d3c853}{MCP\+\_\+\+TXB\+\_\+\+MLOA\+\_\+M}}~0x20
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a7d7ebf6415cef170f111573ef59d89dd}{MCP\+\_\+\+TXB\+\_\+\+TXERR\+\_\+M}}~0x10
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_acd9c8c8f108353829207f034b618a40e}{MCP\+\_\+\+TXB\+\_\+\+TXREQ\+\_\+M}}~0x08
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a1a46319b2abb5799ecff6c242c9c704e}{MCP\+\_\+\+TXB\+\_\+\+TXIE\+\_\+M}}~0x04
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ad25d0a0a423e1f6938ea3e7516101132}{MCP\+\_\+\+TXB\+\_\+\+TXP10\+\_\+M}}~0x03
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a3532deb282aa913b554fcecda1583a68}{MCP\+\_\+\+TXB\+\_\+\+RTR\+\_\+M}}~0x40                                        /\texorpdfstring{$\ast$}{*} In TXBn\+DLC                   \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a614bf5a03be4e6201bd287d92f83b89e}{MCP\+\_\+\+RXB\+\_\+\+IDE\+\_\+M}}~0x08                                        /\texorpdfstring{$\ast$}{*} In RXBn\+SIDL                  \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a1a9ca52d9a7e933b24cd56325228a51a}{MCP\+\_\+\+RXB\+\_\+\+RTR\+\_\+M}}~0x40                                        /\texorpdfstring{$\ast$}{*} In RXBn\+DLC                   \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a3c9d49cd1ceddbabbe2d0c0847352675}{MCP\+\_\+\+STAT\+\_\+\+RXIF\+\_\+\+MASK}}~(0x03)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a43377642fe1721e1fc886ac5ab5da2d8}{MCP\+\_\+\+STAT\+\_\+\+RX0\+IF}}~(1$<$$<$0)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a4b4ab63d7a1081b103cfde05162c9a31}{MCP\+\_\+\+STAT\+\_\+\+RX1\+IF}}~(1$<$$<$1)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a523ab39e2acfad157ffc9bfff14ca980}{MCP\+\_\+\+EFLG\+\_\+\+RX1\+OVR}}~(1$<$$<$7)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_abbc882c0fabdb402921aea4ce7c9954d}{MCP\+\_\+\+EFLG\+\_\+\+RX0\+OVR}}~(1$<$$<$6)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ac073daeb7b5e21daa8c88cee36fc0237}{MCP\+\_\+\+EFLG\+\_\+\+TXBO}}~(1$<$$<$5)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a47f73eb0471464402400343a6739606b}{MCP\+\_\+\+EFLG\+\_\+\+TXEP}}~(1$<$$<$4)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a9d9f6af20e45bb753b94c6359cb89881}{MCP\+\_\+\+EFLG\+\_\+\+RXEP}}~(1$<$$<$3)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a305f05174073bd0907c4f1fac9799cf0}{MCP\+\_\+\+EFLG\+\_\+\+TXWAR}}~(1$<$$<$2)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a38c03cd84f1a2181fc7d20a8347701f6}{MCP\+\_\+\+EFLG\+\_\+\+RXWAR}}~(1$<$$<$1)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a169b388eed0b45a7d16e2ce72268b4a3}{MCP\+\_\+\+EFLG\+\_\+\+EWARN}}~(1$<$$<$0)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a955c11c53f26126aea5a355013e1d72d}{MCP\+\_\+\+EFLG\+\_\+\+ERRORMASK}}~(0x\+F8)                                      /\texorpdfstring{$\ast$}{*} 5 MS-\/Bits                    \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ae421a063d5c9a67484389eb3eaebebfd}{MCP\+\_\+\+RXF0\+SIDH}}~0x00
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a9c93381116e954e7a310e2dbbd2dbc4e}{MCP\+\_\+\+RXF0\+SIDL}}~0x01
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a1ec986ef1512da764c3394f50522b16b}{MCP\+\_\+\+RXF0\+EID8}}~0x02
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a3de3114c44a811cbaabf1861ba55a690}{MCP\+\_\+\+RXF0\+EID0}}~0x03
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a0e86a1817cd0b31a287b150dd322f972}{MCP\+\_\+\+RXF1\+SIDH}}~0x04
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ab57c15509135349cfac67fd74071cf01}{MCP\+\_\+\+RXF1\+SIDL}}~0x05
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_aecfcc2d9cddf17106316db150ac56f82}{MCP\+\_\+\+RXF1\+EID8}}~0x06
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a00edc9ebc006d15149797e48b82949c6}{MCP\+\_\+\+RXF1\+EID0}}~0x07
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a2961fd5700a7ae397d71911f328799e3}{MCP\+\_\+\+RXF2\+SIDH}}~0x08
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a7fc1958385a3995ca062fba4ff14cb41}{MCP\+\_\+\+RXF2\+SIDL}}~0x09
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a31643cf05e789b655d0bf66c100fc5ae}{MCP\+\_\+\+RXF2\+EID8}}~0x0A
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ad9666d49e084c975e49d1f9f7c3df20a}{MCP\+\_\+\+RXF2\+EID0}}~0x0B
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a1a470d80ae3644bf02f2cd4a7bb6aa39}{MCP\+\_\+\+CANSTAT}}~0x0E
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a25864642b445cbfbd85f2a1a22947558}{MCP\+\_\+\+CANCTRL}}~0x0F
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a21d7a29b957697c7d35f7a6a8ab6fba7}{MCP\+\_\+\+RXF3\+SIDH}}~0x10
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a71d3d35f05bf08e68523a9efc61cfbfc}{MCP\+\_\+\+RXF3\+SIDL}}~0x11
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_aec6f10e1f16aa75cf9a2c45cbf072c0c}{MCP\+\_\+\+RXF3\+EID8}}~0x12
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ae6d1393bf6ade012e9de52ce3f781cc0}{MCP\+\_\+\+RXF3\+EID0}}~0x13
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a870788013a5eb433261fb4bbe755b798}{MCP\+\_\+\+RXF4\+SIDH}}~0x14
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a26ea2d067a97a328bdb355f5a1f9bcae}{MCP\+\_\+\+RXF4\+SIDL}}~0x15
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a3b8889cb0efb5374525dc60f8faa6e35}{MCP\+\_\+\+RXF4\+EID8}}~0x16
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a61e6e6a2b3c20e8d900bcb628854a404}{MCP\+\_\+\+RXF4\+EID0}}~0x17
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ac7bc37d5b6536d6c4c15d8a36483fe79}{MCP\+\_\+\+RXF5\+SIDH}}~0x18
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ad4328ca7028ab38ac270f8547fb59582}{MCP\+\_\+\+RXF5\+SIDL}}~0x19
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ac44d4ade53dbe90f58d28d54f3ea4aa0}{MCP\+\_\+\+RXF5\+EID8}}~0x1A
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a0dee7fada196f7183e8f709df24e0bc4}{MCP\+\_\+\+RXF5\+EID0}}~0x1B
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a408a3bfd90d57612646979a8b69497c4}{MCP\+\_\+\+TEC}}~0x1C
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a6f032cfd514ddf69f0bc8424cf924c4a}{MCP\+\_\+\+REC}}~0x1D
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a74a0dc603b68c2ecbb63c3ed29010e17}{MCP\+\_\+\+RXM0\+SIDH}}~0x20
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_acff5cba98baa23236a302a5b678d2899}{MCP\+\_\+\+RXM0\+SIDL}}~0x21
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a0b72079ef3123f9384f8e8767c381086}{MCP\+\_\+\+RXM0\+EID8}}~0x22
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a85951b834260f01b30915e446542d3ef}{MCP\+\_\+\+RXM0\+EID0}}~0x23
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_af33255d20e7adbb274843351676d15bd}{MCP\+\_\+\+RXM1\+SIDH}}~0x24
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_abc4c9f616f34a1adef4dc2526ffeb95b}{MCP\+\_\+\+RXM1\+SIDL}}~0x25
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_aac7b0eb43bfd43104e1876e9d75339b6}{MCP\+\_\+\+RXM1\+EID8}}~0x26
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ae384be8c5a58d1425449b1764ba3fdea}{MCP\+\_\+\+RXM1\+EID0}}~0x27
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ad2e13220f9c51ccd5efda5d3c19761b8}{MCP\+\_\+\+CNF3}}~0x28
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a2a22ce749e287690e3d85514e2c7cb57}{MCP\+\_\+\+CNF2}}~0x29
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a0baef095a5a2997db4c75831e55e8e96}{MCP\+\_\+\+CNF1}}~0x2A
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a778de33d21ab2eb875533a31a2e8ec69}{MCP\+\_\+\+CANINTE}}~0x2B
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ae82ca28239a27c2f8c4871e654480ee3}{MCP\+\_\+\+CANINTF}}~0x2C
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a1695d6e956775335641f7f600439919c}{MCP\+\_\+\+EFLG}}~0x2D
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a8141153ac7a7a40b71f49a3e029c33ac}{MCP\+\_\+\+TXB0\+CTRL}}~0x30
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_abc7ef66a386f13da6f893ea2f951693f}{MCP\+\_\+\+TXB1\+CTRL}}~0x40
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ac43fb5cf36199d6cd0731d58a6f498c6}{MCP\+\_\+\+TXB2\+CTRL}}~0x50
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a61b3cd8d6c29ea6abe1db7c566f1d3d0}{MCP\+\_\+\+RXB0\+CTRL}}~0x60
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ad6151dfa9b6fee9b65db5bb70f41d4a1}{MCP\+\_\+\+RXB0\+SIDH}}~0x61
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a0715576ae1bb6db08da6699fed69b67b}{MCP\+\_\+\+RXB1\+CTRL}}~0x70
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_af4bddbf3d95eb41f4217b43c0da67391}{MCP\+\_\+\+RXB1\+SIDH}}~0x71
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a816cbe8c97b2c24a44425bad397348b9}{MCP\+\_\+\+TX\+\_\+\+INT}}~0x1C
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a7b02ec9eead23e76447f5842404f5af7}{MCP\+\_\+\+TX01\+\_\+\+INT}}~0x0C
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a7b3120302282594f99b9d8b3ff4bd675}{MCP\+\_\+\+RX\+\_\+\+INT}}~0x03
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a624142fcbb5afc5f20a28118cb4c0b09}{MCP\+\_\+\+NO\+\_\+\+INT}}~0x00
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ab23e4c7ad318b4c22601f710cbdacbaf}{MCP\+\_\+\+TX01\+\_\+\+MASK}}~0x14
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a495863adad70a6e84ef9aaffc2158f45}{MCP\+\_\+\+TX\+\_\+\+MASK}}~0x54
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_aa144564452e7a678d00d9727ce35f82f}{MCP\+\_\+\+WRITE}}~0x02
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a1d9ce2ac1c72654e113298fc1307102a}{MCP\+\_\+\+READ}}~0x03
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a973305a49ffc6eed476689b0a8dd69e6}{MCP\+\_\+\+BITMOD}}~0x05
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a22f24df177e60164eed1399565483d29}{MCP\+\_\+\+LOAD\+\_\+\+TX0}}~0x40
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a39edf0ba0b6b50d37c284a01fc06c234}{MCP\+\_\+\+LOAD\+\_\+\+TX1}}~0x42
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a0b09fb52864d8b5035fd0fae0fbebb06}{MCP\+\_\+\+LOAD\+\_\+\+TX2}}~0x44
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ad81495d052d65e3a97a4c2688119ac0e}{MCP\+\_\+\+RTS\+\_\+\+TX0}}~0x81
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a6cc3f921cb8d7cd9323909466ad4307e}{MCP\+\_\+\+RTS\+\_\+\+TX1}}~0x82
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a0fa9efa8755c0ab500fc2e2da56126d0}{MCP\+\_\+\+RTS\+\_\+\+TX2}}~0x84
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ade85afe7da126728c581e32c1fb9fb5b}{MCP\+\_\+\+RTS\+\_\+\+ALL}}~0x87
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a6d36244d972ea4161783204b65ff75e6}{MCP\+\_\+\+READ\+\_\+\+RX0}}~0x90
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a3e686dbe40426f42d3d8553171294458}{MCP\+\_\+\+READ\+\_\+\+RX1}}~0x94
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a399014e8231cd5d4acd4bad7a8553bb7}{MCP\+\_\+\+READ\+\_\+\+STATUS}}~0x\+A0
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a6e47ae0eaa03f32a201ac45f4a755d73}{MCP\+\_\+\+RX\+\_\+\+STATUS}}~0x\+B0
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a8538419d98eecb32d7b8a6e07e8a256f}{MCP\+\_\+\+RESET}}~0x\+C0
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a199e55c829920c767a3f1f42a6a7c1d8}{MODE\+\_\+\+NORMAL}}~0x00
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a2d957317ff490fa73cd4377d5ebf0b0d}{MODE\+\_\+\+SLEEP}}~0x20
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_af45bc9b0ed8edccc1c6c237d83d8ec8d}{MODE\+\_\+\+LOOPBACK}}~0x40
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a69067e4f8f3aad92757c47fa9a1edce4}{MODE\+\_\+\+LISTENONLY}}~0x60
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a5552a5de9b59914458ab99d568bf2763}{MODE\+\_\+\+CONFIG}}~0x80
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a6cba238eaa939c8747d20c8685236ee0}{MODE\+\_\+\+POWERUP}}~0x\+E0
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_aba2b187200eec47c5fc32655e296783d}{MODE\+\_\+\+MASK}}~0x\+E0
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a625b12ba872bf9561838b72e1f1d133f}{ABORT\+\_\+\+TX}}~0x10
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a81abe0ed7526093905ddcf168243f233}{MODE\+\_\+\+ONESHOT}}~0x08
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a7e4130de16e7b1007a40ca21e2d9ded0}{CLKOUT\+\_\+\+ENABLE}}~0x04
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a867e5061e767c13c80906490060a8f3a}{CLKOUT\+\_\+\+DISABLE}}~0x00
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a1b3bf6482ad57ae80b7c2106fa0449cf}{CLKOUT\+\_\+\+PS1}}~0x00
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a13e70f5589f1f6d303775d88249b32a7}{CLKOUT\+\_\+\+PS2}}~0x01
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_abc1f0cc2c03c625d9af22fe7c55482d4}{CLKOUT\+\_\+\+PS4}}~0x02
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_adac6f69cc58f518aa7a146e4b7056bab}{CLKOUT\+\_\+\+PS8}}~0x03
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a4ca4a1b715398a83c454f53a3fd79eb1}{SJW1}}~0x00
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_acb0116aef65be06e41b189522e4e91ed}{SJW2}}~0x40
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a68b22832f20a89ae90e258fd4f192091}{SJW3}}~0x80
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_acc017a3f71fb4570b6ff1dcb747341e3}{SJW4}}~0x\+C0
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ae2c52bac017026aae58e0594159e11e6}{BTLMODE}}~0x80
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_aee91de8fdfa7f84d2e9102b15dc3ad5d}{SAMPLE\+\_\+1X}}~0x00
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_afbe5be9c5672ebcb582105e2f413a8e6}{SAMPLE\+\_\+3X}}~0x40
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ae2c366800285be68658d0423c48095d8}{SOF\+\_\+\+ENABLE}}~0x80
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a0d367e58d4db2e4d3cb2f590829bad61}{SOF\+\_\+\+DISABLE}}~0x00
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a5a29147670f76a2492e290f0b446b7ce}{WAKFIL\+\_\+\+ENABLE}}~0x40
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a9ebaab776c2140a706d54c6f8f8840ee}{WAKFIL\+\_\+\+DISABLE}}~0x00
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a44d0f7db08c98cfd446daab2b0a4ec8f}{MCP\+\_\+\+RX0\+IF}}~0x01
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a9fcfe75306166e89b598bd9519e2db8b}{MCP\+\_\+\+RX1\+IF}}~0x02
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a28eb84f8219613a6da1f46b7d0672ad0}{MCP\+\_\+\+TX0\+IF}}~0x04
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_adb11d8db50d2832ba339ae4c100bdcca}{MCP\+\_\+\+TX1\+IF}}~0x08
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_adee823c1fd68b891ea7ed87f302cc021}{MCP\+\_\+\+TX2\+IF}}~0x10
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a5c1209adc4e7ee5a0f08b0bced532768}{MCP\+\_\+\+ERRIF}}~0x20
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a86309745d44d7040ccbb116cb0b0de33}{MCP\+\_\+\+WAKIF}}~0x40
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_aefa5a3dc7ca94fee366e0418590063f6}{MCP\+\_\+\+MERRF}}~0x80
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a60f65cfc4763f4f4e2830c1a805ba1bc}{MCP\+\_\+16\+MHz\+\_\+500k\+BPS\+\_\+\+CFG1}}~(0x00)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a78cfadcaf26d34d54b734453a20c0676}{MCP\+\_\+16\+MHz\+\_\+500k\+BPS\+\_\+\+CFG2}}~(0xb0)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a29b1be70e7e0c27f7ebee02de31b9324}{MCP\+\_\+16\+MHz\+\_\+500k\+BPS\+\_\+\+CFG3}}~(0x06)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a8253873ee8a937180b718afef223a5c5}{MCP\+\_\+16\+MHz\+\_\+250k\+BPS\+\_\+\+CFG1}}~(0x01)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a5e4d523583a7eab66f4807b7aff65270}{MCP\+\_\+16\+MHz\+\_\+250k\+BPS\+\_\+\+CFG2}}~(0xb0)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a6236f3216b1bbb72677d3a534a14e0ef}{MCP\+\_\+16\+MHz\+\_\+250k\+BPS\+\_\+\+CFG3}}~(0x06)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_abecf62af808d83b9c553709c4c730f04}{MCP\+\_\+16\+MHz\+\_\+200k\+BPS\+\_\+\+CFG1}}~(0x00)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a35d31c6b2d6b7b1f7a8dd7f949260b25}{MCP\+\_\+16\+MHz\+\_\+200k\+BPS\+\_\+\+CFG2}}~(0xba)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a4ca071c33865a45c8b532fdc0e8189b5}{MCP\+\_\+16\+MHz\+\_\+200k\+BPS\+\_\+\+CFG3}}~(0x07)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_af10501fc4ebad1fa7dd8f97ab2c596e7}{MCP\+\_\+16\+MHz\+\_\+125k\+BPS\+\_\+\+CFG1}}~(0x01)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a2b46491d0bd1b499805471549fea63a2}{MCP\+\_\+16\+MHz\+\_\+125k\+BPS\+\_\+\+CFG2}}~(0xba)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_abcb28f9371cf39b67c6e3ec251b5789c}{MCP\+\_\+16\+MHz\+\_\+125k\+BPS\+\_\+\+CFG3}}~(0x07)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_af0b19f417570256d36a39222f7bd5cac}{MCP\+\_\+16\+MHz\+\_\+100k\+BPS\+\_\+\+CFG1}}~(0x03)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ab785f2a5c5aba0235f14a5a499b96ad0}{MCP\+\_\+16\+MHz\+\_\+100k\+BPS\+\_\+\+CFG2}}~(0xba)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ab931f2bcc4d3a5adf70e5c69ca079abb}{MCP\+\_\+16\+MHz\+\_\+100k\+BPS\+\_\+\+CFG3}}~(0x07)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a533b1ffc728cbb6971faf94854a02652}{MCP\+\_\+16\+MHz\+\_\+80k\+BPS\+\_\+\+CFG1}}~(0x03)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a40dd00ee8e3d7553faa0471a28fb7d89}{MCP\+\_\+16\+MHz\+\_\+80k\+BPS\+\_\+\+CFG2}}~(0xbf)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a723c1ec2fc26f9ac28741e6b49eef9d1}{MCP\+\_\+16\+MHz\+\_\+80k\+BPS\+\_\+\+CFG3}}~(0x07)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a8a26ec918f1aca9346b81e67148662b9}{MCP\+\_\+16\+MHz\+\_\+50k\+BPS\+\_\+\+CFG1}}~(0x07)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a943d7588bc35dc0705e54a4324344cf3}{MCP\+\_\+16\+MHz\+\_\+50k\+BPS\+\_\+\+CFG2}}~(0xba)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ae2f86de1526cbda7f5f08d80cf171c34}{MCP\+\_\+16\+MHz\+\_\+50k\+BPS\+\_\+\+CFG3}}~(0x07)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a3866bc81d8f0bab4a50ffe2350409604}{MCP\+\_\+16\+MHz\+\_\+40k\+BPS\+\_\+\+CFG1}}~(0x07)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a9b929834eeecdbd01189feb1a71ef832}{MCP\+\_\+16\+MHz\+\_\+40k\+BPS\+\_\+\+CFG2}}~(0xbf)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a29524676f5a869df5f33215727d7887f}{MCP\+\_\+16\+MHz\+\_\+40k\+BPS\+\_\+\+CFG3}}~(0x07)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_aee1f1a12abe36e50a4d4aa26bede852d}{MCP\+\_\+16\+MHz\+\_\+20k\+BPS\+\_\+\+CFG1}}~(0x0f)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a5902f0b75095072ab8afe6f299cbbf0f}{MCP\+\_\+16\+MHz\+\_\+20k\+BPS\+\_\+\+CFG2}}~(0xbf)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a43bc3881a644f266569d6c906a8d0362}{MCP\+\_\+16\+MHz\+\_\+20k\+BPS\+\_\+\+CFG3}}~(0x07)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a993d8b64f41c5f8e52e2ce80ff47abcf}{MCP\+\_\+16\+MHz\+\_\+10k\+BPS\+\_\+\+CFG1}}~(0x1f)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a17ed5eebea6f59ef4ad1e0233b6658dd}{MCP\+\_\+16\+MHz\+\_\+10k\+BPS\+\_\+\+CFG2}}~(0xbf)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a89c26e3e3193d593eb4d9288e7af45e0}{MCP\+\_\+16\+MHz\+\_\+10k\+BPS\+\_\+\+CFG3}}~(0x07)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a40672ada2d15b6332f980b78aa6a7c3e}{MCP\+\_\+16\+MHz\+\_\+5k\+BPS\+\_\+\+CFG1}}~(0x3f)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a93739fdd45d533f1e405371c38f352d1}{MCP\+\_\+16\+MHz\+\_\+5k\+BPS\+\_\+\+CFG2}}~(0xbf)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ab3d10733e569cbff26e7ba9491580711}{MCP\+\_\+16\+MHz\+\_\+5k\+BPS\+\_\+\+CFG3}}~(0x07)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a9623212b948fecee4edaf5c3ababaf0f}{MCPDEBUG}}~(0)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_af483660e2b8368fc27e17b49b2537928}{MCPDEBUG\+\_\+\+TXBUF}}~(0)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_abfaf599ecaac1eac51349615340e563c}{MCP\+\_\+\+N\+\_\+\+TXBUFFERS}}~(3)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a8b2774e9d8ae29eb0341b7aa3ce1e759}{MCP\+\_\+\+RXBUF\+\_\+0}}~(\mbox{\hyperlink{mcp__can__dfs_8h_ad6151dfa9b6fee9b65db5bb70f41d4a1}{MCP\+\_\+\+RXB0\+SIDH}})
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a9aff33c8adebd51d2fb8df068645997e}{MCP\+\_\+\+RXBUF\+\_\+1}}~(\mbox{\hyperlink{mcp__can__dfs_8h_af4bddbf3d95eb41f4217b43c0da67391}{MCP\+\_\+\+RXB1\+SIDH}})
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a7c97ef3732493d3c104e15761a8ae799}{SPICS}}~10
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_aa2bdcdbbb9cb031038614e5b951feb91}{MCP2515\+\_\+\+SELECT}}()~digital\+Write(\mbox{\hyperlink{mcp__can__dfs_8h_a7c97ef3732493d3c104e15761a8ae799}{SPICS}}, LOW)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ab9f9607d80e677fa252400eac67dc211}{MCP2515\+\_\+\+UNSELECT}}()~digital\+Write(\mbox{\hyperlink{mcp__can__dfs_8h_a7c97ef3732493d3c104e15761a8ae799}{SPICS}}, HIGH)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a1446a350fed7e8499e7552e09b3a693a}{MCP2515\+\_\+\+OK}}~(0)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a2a82e7191eb924b27a294e3c05da1d27}{MCP2515\+\_\+\+FAIL}}~(1)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a543c929782b34e62d94a08d187371167}{MCP\+\_\+\+ALLTXBUSY}}~(2)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a8b7889f51407dbe8e184d13933e47f1a}{CANDEBUG}}~1
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a78f2e6b69642989c5005e4a250ba9e34}{CANUSELOOP}}~0
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a35fc323423aebacbbaacc9b23a9bd759}{CANSENDTIMEOUT}}~(200)                                            /\texorpdfstring{$\ast$}{*} milliseconds                 \texorpdfstring{$\ast$}{*}/
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a0dc27c4b524e7b431b62687ec7ebe127}{CANAUTOPROCESS}}~(1)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ab42889109a98d331fd747c28eeb1da45}{CANAUTOON}}~(1)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_adf7e8fc8d4524196ae716602ac3e936e}{CANAUTOOFF}}~(0)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ad33159a8f9cf6ba1240eb25bc4543354}{CAN\+\_\+\+STDID}}~(0)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_aee8612f512256d9c96807ba04cc2ef55}{CAN\+\_\+\+EXTID}}~(1)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a42e934996b12adb9f0bf9430dde2a50a}{CANDEFAULTIDENT}}~(0x55\+CC)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a6212816bead05c6275332edd956955eb}{CANDEFAULTIDENTEXT}}~(\mbox{\hyperlink{mcp__can__dfs_8h_aee8612f512256d9c96807ba04cc2ef55}{CAN\+\_\+\+EXTID}})
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_aab705af369ee1b0fec8a49f973ad88fa}{CAN\+\_\+5\+KBPS}}~1
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a539f99c6fa9144f3ebac102b2d32af17}{CAN\+\_\+10\+KBPS}}~2
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a55cde64c637ce49234ed1ac097e46a07}{CAN\+\_\+20\+KBPS}}~3
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a329c493dcee75a270645ef202acb48a8}{CAN\+\_\+40\+KBPS}}~4
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a6b440d85c7465d9289f86833d2106717}{CAN\+\_\+50\+KBPS}}~5
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a970295006e89417da5cb7fc0e353cf36}{CAN\+\_\+80\+KBPS}}~6
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_af72e31d03d7d31952da7c4dffc3af7d0}{CAN\+\_\+100\+KBPS}}~7
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a271d9467d63823df770adf9c7c179bfd}{CAN\+\_\+125\+KBPS}}~8
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a9d9b39f661996b58e48f114825065531}{CAN\+\_\+200\+KBPS}}~9
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a323f8e737ff9940c76dc138abe3f0cb9}{CAN\+\_\+250\+KBPS}}~10
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a838186bc9587b888bf99f730e69fc70d}{CAN\+\_\+500\+KBPS}}~11
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a828ca6464d281c8b2a780169ac2c6318}{CAN\+\_\+\+OK}}~(0)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a00b48d1aebc2f5e5c344b6cafb664826}{CAN\+\_\+\+FAILINIT}}~(1)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a7d33bedb210a5fd0605e73e4a985aeac}{CAN\+\_\+\+FAILTX}}~(2)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a88dd5035f1fa5b6070409d2cec9a2e2c}{CAN\+\_\+\+MSGAVAIL}}~(3)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_af4e14f8d900933e330aa7621d0bcf9d9}{CAN\+\_\+\+NOMSG}}~(4)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a4f666ae6ade9a658c5dbb48a9839f11d}{CAN\+\_\+\+CTRLERROR}}~(5)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_ad5e00242f26cd33398411abd5955a41c}{CAN\+\_\+\+GETTXBFTIMEOUT}}~(6)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_aeaafe3b2fec30de0075ff07fbf55d1c0}{CAN\+\_\+\+SENDMSGTIMEOUT}}~(7)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_a29140a6136288e3eabd7558d57152da1}{CAN\+\_\+\+FAIL}}~(0xff)
+\item 
+\#define \mbox{\hyperlink{mcp__can__dfs_8h_aeb8807251f9904f7a59066a25443865f}{CAN\+\_\+\+MAX\+\_\+\+CHAR\+\_\+\+IN\+\_\+\+MESSAGE}}~(8)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{mcp__can__dfs_8h_a625b12ba872bf9561838b72e1f1d133f}\label{mcp__can__dfs_8h_a625b12ba872bf9561838b72e1f1d133f} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!ABORT\_TX@{ABORT\_TX}}
+\index{ABORT\_TX@{ABORT\_TX}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{ABORT\_TX}{ABORT\_TX}}
+{\footnotesize\ttfamily \#define ABORT\+\_\+\+TX~0x10}
+
+\Hypertarget{mcp__can__dfs_8h_ae2c52bac017026aae58e0594159e11e6}\label{mcp__can__dfs_8h_ae2c52bac017026aae58e0594159e11e6} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!BTLMODE@{BTLMODE}}
+\index{BTLMODE@{BTLMODE}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{BTLMODE}{BTLMODE}}
+{\footnotesize\ttfamily \#define BTLMODE~0x80}
+
+\Hypertarget{mcp__can__dfs_8h_af72e31d03d7d31952da7c4dffc3af7d0}\label{mcp__can__dfs_8h_af72e31d03d7d31952da7c4dffc3af7d0} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_100KBPS@{CAN\_100KBPS}}
+\index{CAN\_100KBPS@{CAN\_100KBPS}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_100KBPS}{CAN\_100KBPS}}
+{\footnotesize\ttfamily \#define CAN\+\_\+100\+KBPS~7}
+
+\Hypertarget{mcp__can__dfs_8h_a539f99c6fa9144f3ebac102b2d32af17}\label{mcp__can__dfs_8h_a539f99c6fa9144f3ebac102b2d32af17} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_10KBPS@{CAN\_10KBPS}}
+\index{CAN\_10KBPS@{CAN\_10KBPS}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_10KBPS}{CAN\_10KBPS}}
+{\footnotesize\ttfamily \#define CAN\+\_\+10\+KBPS~2}
+
+\Hypertarget{mcp__can__dfs_8h_a271d9467d63823df770adf9c7c179bfd}\label{mcp__can__dfs_8h_a271d9467d63823df770adf9c7c179bfd} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_125KBPS@{CAN\_125KBPS}}
+\index{CAN\_125KBPS@{CAN\_125KBPS}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_125KBPS}{CAN\_125KBPS}}
+{\footnotesize\ttfamily \#define CAN\+\_\+125\+KBPS~8}
+
+\Hypertarget{mcp__can__dfs_8h_a9d9b39f661996b58e48f114825065531}\label{mcp__can__dfs_8h_a9d9b39f661996b58e48f114825065531} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_200KBPS@{CAN\_200KBPS}}
+\index{CAN\_200KBPS@{CAN\_200KBPS}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_200KBPS}{CAN\_200KBPS}}
+{\footnotesize\ttfamily \#define CAN\+\_\+200\+KBPS~9}
+
+\Hypertarget{mcp__can__dfs_8h_a55cde64c637ce49234ed1ac097e46a07}\label{mcp__can__dfs_8h_a55cde64c637ce49234ed1ac097e46a07} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_20KBPS@{CAN\_20KBPS}}
+\index{CAN\_20KBPS@{CAN\_20KBPS}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_20KBPS}{CAN\_20KBPS}}
+{\footnotesize\ttfamily \#define CAN\+\_\+20\+KBPS~3}
+
+\Hypertarget{mcp__can__dfs_8h_a323f8e737ff9940c76dc138abe3f0cb9}\label{mcp__can__dfs_8h_a323f8e737ff9940c76dc138abe3f0cb9} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_250KBPS@{CAN\_250KBPS}}
+\index{CAN\_250KBPS@{CAN\_250KBPS}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_250KBPS}{CAN\_250KBPS}}
+{\footnotesize\ttfamily \#define CAN\+\_\+250\+KBPS~10}
+
+\Hypertarget{mcp__can__dfs_8h_a329c493dcee75a270645ef202acb48a8}\label{mcp__can__dfs_8h_a329c493dcee75a270645ef202acb48a8} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_40KBPS@{CAN\_40KBPS}}
+\index{CAN\_40KBPS@{CAN\_40KBPS}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_40KBPS}{CAN\_40KBPS}}
+{\footnotesize\ttfamily \#define CAN\+\_\+40\+KBPS~4}
+
+\Hypertarget{mcp__can__dfs_8h_a838186bc9587b888bf99f730e69fc70d}\label{mcp__can__dfs_8h_a838186bc9587b888bf99f730e69fc70d} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_500KBPS@{CAN\_500KBPS}}
+\index{CAN\_500KBPS@{CAN\_500KBPS}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_500KBPS}{CAN\_500KBPS}}
+{\footnotesize\ttfamily \#define CAN\+\_\+500\+KBPS~11}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2karthik_2snap_2arduino_285_2Arduino_2RS485_CANHAT_Interfacing_Arduino_2RS485_CANHAT_Interfacing_Arduino_8ino-example}{/home/karthik/snap/arduino/85/\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino.\+ino}}.\end{Desc}
+\Hypertarget{mcp__can__dfs_8h_a6b440d85c7465d9289f86833d2106717}\label{mcp__can__dfs_8h_a6b440d85c7465d9289f86833d2106717} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_50KBPS@{CAN\_50KBPS}}
+\index{CAN\_50KBPS@{CAN\_50KBPS}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_50KBPS}{CAN\_50KBPS}}
+{\footnotesize\ttfamily \#define CAN\+\_\+50\+KBPS~5}
+
+\Hypertarget{mcp__can__dfs_8h_aab705af369ee1b0fec8a49f973ad88fa}\label{mcp__can__dfs_8h_aab705af369ee1b0fec8a49f973ad88fa} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_5KBPS@{CAN\_5KBPS}}
+\index{CAN\_5KBPS@{CAN\_5KBPS}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_5KBPS}{CAN\_5KBPS}}
+{\footnotesize\ttfamily \#define CAN\+\_\+5\+KBPS~1}
+
+\Hypertarget{mcp__can__dfs_8h_a970295006e89417da5cb7fc0e353cf36}\label{mcp__can__dfs_8h_a970295006e89417da5cb7fc0e353cf36} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_80KBPS@{CAN\_80KBPS}}
+\index{CAN\_80KBPS@{CAN\_80KBPS}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_80KBPS}{CAN\_80KBPS}}
+{\footnotesize\ttfamily \#define CAN\+\_\+80\+KBPS~6}
+
+\Hypertarget{mcp__can__dfs_8h_a4f666ae6ade9a658c5dbb48a9839f11d}\label{mcp__can__dfs_8h_a4f666ae6ade9a658c5dbb48a9839f11d} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_CTRLERROR@{CAN\_CTRLERROR}}
+\index{CAN\_CTRLERROR@{CAN\_CTRLERROR}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_CTRLERROR}{CAN\_CTRLERROR}}
+{\footnotesize\ttfamily \#define CAN\+\_\+\+CTRLERROR~(5)}
+
+\Hypertarget{mcp__can__dfs_8h_aee8612f512256d9c96807ba04cc2ef55}\label{mcp__can__dfs_8h_aee8612f512256d9c96807ba04cc2ef55} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_EXTID@{CAN\_EXTID}}
+\index{CAN\_EXTID@{CAN\_EXTID}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_EXTID}{CAN\_EXTID}}
+{\footnotesize\ttfamily \#define CAN\+\_\+\+EXTID~(1)}
+
+\Hypertarget{mcp__can__dfs_8h_a29140a6136288e3eabd7558d57152da1}\label{mcp__can__dfs_8h_a29140a6136288e3eabd7558d57152da1} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_FAIL@{CAN\_FAIL}}
+\index{CAN\_FAIL@{CAN\_FAIL}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_FAIL}{CAN\_FAIL}}
+{\footnotesize\ttfamily \#define CAN\+\_\+\+FAIL~(0xff)}
+
+\Hypertarget{mcp__can__dfs_8h_a00b48d1aebc2f5e5c344b6cafb664826}\label{mcp__can__dfs_8h_a00b48d1aebc2f5e5c344b6cafb664826} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_FAILINIT@{CAN\_FAILINIT}}
+\index{CAN\_FAILINIT@{CAN\_FAILINIT}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_FAILINIT}{CAN\_FAILINIT}}
+{\footnotesize\ttfamily \#define CAN\+\_\+\+FAILINIT~(1)}
+
+\Hypertarget{mcp__can__dfs_8h_a7d33bedb210a5fd0605e73e4a985aeac}\label{mcp__can__dfs_8h_a7d33bedb210a5fd0605e73e4a985aeac} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_FAILTX@{CAN\_FAILTX}}
+\index{CAN\_FAILTX@{CAN\_FAILTX}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_FAILTX}{CAN\_FAILTX}}
+{\footnotesize\ttfamily \#define CAN\+\_\+\+FAILTX~(2)}
+
+\Hypertarget{mcp__can__dfs_8h_ad5e00242f26cd33398411abd5955a41c}\label{mcp__can__dfs_8h_ad5e00242f26cd33398411abd5955a41c} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_GETTXBFTIMEOUT@{CAN\_GETTXBFTIMEOUT}}
+\index{CAN\_GETTXBFTIMEOUT@{CAN\_GETTXBFTIMEOUT}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_GETTXBFTIMEOUT}{CAN\_GETTXBFTIMEOUT}}
+{\footnotesize\ttfamily \#define CAN\+\_\+\+GETTXBFTIMEOUT~(6)}
+
+\Hypertarget{mcp__can__dfs_8h_aeb8807251f9904f7a59066a25443865f}\label{mcp__can__dfs_8h_aeb8807251f9904f7a59066a25443865f} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_MAX\_CHAR\_IN\_MESSAGE@{CAN\_MAX\_CHAR\_IN\_MESSAGE}}
+\index{CAN\_MAX\_CHAR\_IN\_MESSAGE@{CAN\_MAX\_CHAR\_IN\_MESSAGE}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_MAX\_CHAR\_IN\_MESSAGE}{CAN\_MAX\_CHAR\_IN\_MESSAGE}}
+{\footnotesize\ttfamily \#define CAN\+\_\+\+MAX\+\_\+\+CHAR\+\_\+\+IN\+\_\+\+MESSAGE~(8)}
+
+\Hypertarget{mcp__can__dfs_8h_a88dd5035f1fa5b6070409d2cec9a2e2c}\label{mcp__can__dfs_8h_a88dd5035f1fa5b6070409d2cec9a2e2c} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_MSGAVAIL@{CAN\_MSGAVAIL}}
+\index{CAN\_MSGAVAIL@{CAN\_MSGAVAIL}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_MSGAVAIL}{CAN\_MSGAVAIL}}
+{\footnotesize\ttfamily \#define CAN\+\_\+\+MSGAVAIL~(3)}
+
+\Hypertarget{mcp__can__dfs_8h_af4e14f8d900933e330aa7621d0bcf9d9}\label{mcp__can__dfs_8h_af4e14f8d900933e330aa7621d0bcf9d9} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_NOMSG@{CAN\_NOMSG}}
+\index{CAN\_NOMSG@{CAN\_NOMSG}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_NOMSG}{CAN\_NOMSG}}
+{\footnotesize\ttfamily \#define CAN\+\_\+\+NOMSG~(4)}
+
+\Hypertarget{mcp__can__dfs_8h_a828ca6464d281c8b2a780169ac2c6318}\label{mcp__can__dfs_8h_a828ca6464d281c8b2a780169ac2c6318} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_OK@{CAN\_OK}}
+\index{CAN\_OK@{CAN\_OK}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_OK}{CAN\_OK}}
+{\footnotesize\ttfamily \#define CAN\+\_\+\+OK~(0)}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2karthik_2snap_2arduino_285_2Arduino_2RS485_CANHAT_Interfacing_Arduino_2RS485_CANHAT_Interfacing_Arduino_8ino-example}{/home/karthik/snap/arduino/85/\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino.\+ino}}.\end{Desc}
+\Hypertarget{mcp__can__dfs_8h_aeaafe3b2fec30de0075ff07fbf55d1c0}\label{mcp__can__dfs_8h_aeaafe3b2fec30de0075ff07fbf55d1c0} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_SENDMSGTIMEOUT@{CAN\_SENDMSGTIMEOUT}}
+\index{CAN\_SENDMSGTIMEOUT@{CAN\_SENDMSGTIMEOUT}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_SENDMSGTIMEOUT}{CAN\_SENDMSGTIMEOUT}}
+{\footnotesize\ttfamily \#define CAN\+\_\+\+SENDMSGTIMEOUT~(7)}
+
+\Hypertarget{mcp__can__dfs_8h_ad33159a8f9cf6ba1240eb25bc4543354}\label{mcp__can__dfs_8h_ad33159a8f9cf6ba1240eb25bc4543354} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CAN\_STDID@{CAN\_STDID}}
+\index{CAN\_STDID@{CAN\_STDID}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_STDID}{CAN\_STDID}}
+{\footnotesize\ttfamily \#define CAN\+\_\+\+STDID~(0)}
+
+\Hypertarget{mcp__can__dfs_8h_adf7e8fc8d4524196ae716602ac3e936e}\label{mcp__can__dfs_8h_adf7e8fc8d4524196ae716602ac3e936e} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CANAUTOOFF@{CANAUTOOFF}}
+\index{CANAUTOOFF@{CANAUTOOFF}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CANAUTOOFF}{CANAUTOOFF}}
+{\footnotesize\ttfamily \#define CANAUTOOFF~(0)}
+
+\Hypertarget{mcp__can__dfs_8h_ab42889109a98d331fd747c28eeb1da45}\label{mcp__can__dfs_8h_ab42889109a98d331fd747c28eeb1da45} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CANAUTOON@{CANAUTOON}}
+\index{CANAUTOON@{CANAUTOON}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CANAUTOON}{CANAUTOON}}
+{\footnotesize\ttfamily \#define CANAUTOON~(1)}
+
+\Hypertarget{mcp__can__dfs_8h_a0dc27c4b524e7b431b62687ec7ebe127}\label{mcp__can__dfs_8h_a0dc27c4b524e7b431b62687ec7ebe127} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CANAUTOPROCESS@{CANAUTOPROCESS}}
+\index{CANAUTOPROCESS@{CANAUTOPROCESS}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CANAUTOPROCESS}{CANAUTOPROCESS}}
+{\footnotesize\ttfamily \#define CANAUTOPROCESS~(1)}
+
+\Hypertarget{mcp__can__dfs_8h_a8b7889f51407dbe8e184d13933e47f1a}\label{mcp__can__dfs_8h_a8b7889f51407dbe8e184d13933e47f1a} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CANDEBUG@{CANDEBUG}}
+\index{CANDEBUG@{CANDEBUG}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CANDEBUG}{CANDEBUG}}
+{\footnotesize\ttfamily \#define CANDEBUG~1}
+
+\Hypertarget{mcp__can__dfs_8h_a42e934996b12adb9f0bf9430dde2a50a}\label{mcp__can__dfs_8h_a42e934996b12adb9f0bf9430dde2a50a} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CANDEFAULTIDENT@{CANDEFAULTIDENT}}
+\index{CANDEFAULTIDENT@{CANDEFAULTIDENT}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CANDEFAULTIDENT}{CANDEFAULTIDENT}}
+{\footnotesize\ttfamily \#define CANDEFAULTIDENT~(0x55\+CC)}
+
+\Hypertarget{mcp__can__dfs_8h_a6212816bead05c6275332edd956955eb}\label{mcp__can__dfs_8h_a6212816bead05c6275332edd956955eb} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CANDEFAULTIDENTEXT@{CANDEFAULTIDENTEXT}}
+\index{CANDEFAULTIDENTEXT@{CANDEFAULTIDENTEXT}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CANDEFAULTIDENTEXT}{CANDEFAULTIDENTEXT}}
+{\footnotesize\ttfamily \#define CANDEFAULTIDENTEXT~(\mbox{\hyperlink{mcp__can__dfs_8h_aee8612f512256d9c96807ba04cc2ef55}{CAN\+\_\+\+EXTID}})}
+
+\Hypertarget{mcp__can__dfs_8h_a35fc323423aebacbbaacc9b23a9bd759}\label{mcp__can__dfs_8h_a35fc323423aebacbbaacc9b23a9bd759} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CANSENDTIMEOUT@{CANSENDTIMEOUT}}
+\index{CANSENDTIMEOUT@{CANSENDTIMEOUT}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CANSENDTIMEOUT}{CANSENDTIMEOUT}}
+{\footnotesize\ttfamily \#define CANSENDTIMEOUT~(200)                                            /\texorpdfstring{$\ast$}{*} milliseconds                 \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{mcp__can__dfs_8h_a78f2e6b69642989c5005e4a250ba9e34}\label{mcp__can__dfs_8h_a78f2e6b69642989c5005e4a250ba9e34} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CANUSELOOP@{CANUSELOOP}}
+\index{CANUSELOOP@{CANUSELOOP}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CANUSELOOP}{CANUSELOOP}}
+{\footnotesize\ttfamily \#define CANUSELOOP~0}
+
+\Hypertarget{mcp__can__dfs_8h_a867e5061e767c13c80906490060a8f3a}\label{mcp__can__dfs_8h_a867e5061e767c13c80906490060a8f3a} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CLKOUT\_DISABLE@{CLKOUT\_DISABLE}}
+\index{CLKOUT\_DISABLE@{CLKOUT\_DISABLE}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CLKOUT\_DISABLE}{CLKOUT\_DISABLE}}
+{\footnotesize\ttfamily \#define CLKOUT\+\_\+\+DISABLE~0x00}
+
+\Hypertarget{mcp__can__dfs_8h_a7e4130de16e7b1007a40ca21e2d9ded0}\label{mcp__can__dfs_8h_a7e4130de16e7b1007a40ca21e2d9ded0} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CLKOUT\_ENABLE@{CLKOUT\_ENABLE}}
+\index{CLKOUT\_ENABLE@{CLKOUT\_ENABLE}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CLKOUT\_ENABLE}{CLKOUT\_ENABLE}}
+{\footnotesize\ttfamily \#define CLKOUT\+\_\+\+ENABLE~0x04}
+
+\Hypertarget{mcp__can__dfs_8h_a1b3bf6482ad57ae80b7c2106fa0449cf}\label{mcp__can__dfs_8h_a1b3bf6482ad57ae80b7c2106fa0449cf} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CLKOUT\_PS1@{CLKOUT\_PS1}}
+\index{CLKOUT\_PS1@{CLKOUT\_PS1}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CLKOUT\_PS1}{CLKOUT\_PS1}}
+{\footnotesize\ttfamily \#define CLKOUT\+\_\+\+PS1~0x00}
+
+\Hypertarget{mcp__can__dfs_8h_a13e70f5589f1f6d303775d88249b32a7}\label{mcp__can__dfs_8h_a13e70f5589f1f6d303775d88249b32a7} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CLKOUT\_PS2@{CLKOUT\_PS2}}
+\index{CLKOUT\_PS2@{CLKOUT\_PS2}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CLKOUT\_PS2}{CLKOUT\_PS2}}
+{\footnotesize\ttfamily \#define CLKOUT\+\_\+\+PS2~0x01}
+
+\Hypertarget{mcp__can__dfs_8h_abc1f0cc2c03c625d9af22fe7c55482d4}\label{mcp__can__dfs_8h_abc1f0cc2c03c625d9af22fe7c55482d4} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CLKOUT\_PS4@{CLKOUT\_PS4}}
+\index{CLKOUT\_PS4@{CLKOUT\_PS4}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CLKOUT\_PS4}{CLKOUT\_PS4}}
+{\footnotesize\ttfamily \#define CLKOUT\+\_\+\+PS4~0x02}
+
+\Hypertarget{mcp__can__dfs_8h_adac6f69cc58f518aa7a146e4b7056bab}\label{mcp__can__dfs_8h_adac6f69cc58f518aa7a146e4b7056bab} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!CLKOUT\_PS8@{CLKOUT\_PS8}}
+\index{CLKOUT\_PS8@{CLKOUT\_PS8}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{CLKOUT\_PS8}{CLKOUT\_PS8}}
+{\footnotesize\ttfamily \#define CLKOUT\+\_\+\+PS8~0x03}
+
+\Hypertarget{mcp__can__dfs_8h_ac80a3592e72fd96b772ee47a7d8e0d0a}\label{mcp__can__dfs_8h_ac80a3592e72fd96b772ee47a7d8e0d0a} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!DEBUG\_MODE@{DEBUG\_MODE}}
+\index{DEBUG\_MODE@{DEBUG\_MODE}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_MODE}{DEBUG\_MODE}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+MODE~1}
+
+\Hypertarget{mcp__can__dfs_8h_a25ff3c0f78edb856f90b536f50e7ca18}\label{mcp__can__dfs_8h_a25ff3c0f78edb856f90b536f50e7ca18} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!INT32U@{INT32U}}
+\index{INT32U@{INT32U}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{INT32U}{INT32U}}
+{\footnotesize\ttfamily \#define INT32U~unsigned long}
+
+\Hypertarget{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}\label{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!INT8U@{INT8U}}
+\index{INT8U@{INT8U}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{INT8U}{INT8U}}
+{\footnotesize\ttfamily \#define INT8U~unsigned char}
+
+\Hypertarget{mcp__can__dfs_8h_a2a82e7191eb924b27a294e3c05da1d27}\label{mcp__can__dfs_8h_a2a82e7191eb924b27a294e3c05da1d27} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP2515\_FAIL@{MCP2515\_FAIL}}
+\index{MCP2515\_FAIL@{MCP2515\_FAIL}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP2515\_FAIL}{MCP2515\_FAIL}}
+{\footnotesize\ttfamily \#define MCP2515\+\_\+\+FAIL~(1)}
+
+\Hypertarget{mcp__can__dfs_8h_a1446a350fed7e8499e7552e09b3a693a}\label{mcp__can__dfs_8h_a1446a350fed7e8499e7552e09b3a693a} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP2515\_OK@{MCP2515\_OK}}
+\index{MCP2515\_OK@{MCP2515\_OK}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP2515\_OK}{MCP2515\_OK}}
+{\footnotesize\ttfamily \#define MCP2515\+\_\+\+OK~(0)}
+
+\Hypertarget{mcp__can__dfs_8h_aa2bdcdbbb9cb031038614e5b951feb91}\label{mcp__can__dfs_8h_aa2bdcdbbb9cb031038614e5b951feb91} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP2515\_SELECT@{MCP2515\_SELECT}}
+\index{MCP2515\_SELECT@{MCP2515\_SELECT}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP2515\_SELECT}{MCP2515\_SELECT}}
+{\footnotesize\ttfamily \#define MCP2515\+\_\+\+SELECT(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~digital\+Write(\mbox{\hyperlink{mcp__can__dfs_8h_a7c97ef3732493d3c104e15761a8ae799}{SPICS}}, LOW)}
+
+\Hypertarget{mcp__can__dfs_8h_ab9f9607d80e677fa252400eac67dc211}\label{mcp__can__dfs_8h_ab9f9607d80e677fa252400eac67dc211} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP2515\_UNSELECT@{MCP2515\_UNSELECT}}
+\index{MCP2515\_UNSELECT@{MCP2515\_UNSELECT}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP2515\_UNSELECT}{MCP2515\_UNSELECT}}
+{\footnotesize\ttfamily \#define MCP2515\+\_\+\+UNSELECT(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~digital\+Write(\mbox{\hyperlink{mcp__can__dfs_8h_a7c97ef3732493d3c104e15761a8ae799}{SPICS}}, HIGH)}
+
+\Hypertarget{mcp__can__dfs_8h_af0b19f417570256d36a39222f7bd5cac}\label{mcp__can__dfs_8h_af0b19f417570256d36a39222f7bd5cac} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_100kBPS\_CFG1@{MCP\_16MHz\_100kBPS\_CFG1}}
+\index{MCP\_16MHz\_100kBPS\_CFG1@{MCP\_16MHz\_100kBPS\_CFG1}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_100kBPS\_CFG1}{MCP\_16MHz\_100kBPS\_CFG1}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+100k\+BPS\+\_\+\+CFG1~(0x03)}
+
+\Hypertarget{mcp__can__dfs_8h_ab785f2a5c5aba0235f14a5a499b96ad0}\label{mcp__can__dfs_8h_ab785f2a5c5aba0235f14a5a499b96ad0} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_100kBPS\_CFG2@{MCP\_16MHz\_100kBPS\_CFG2}}
+\index{MCP\_16MHz\_100kBPS\_CFG2@{MCP\_16MHz\_100kBPS\_CFG2}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_100kBPS\_CFG2}{MCP\_16MHz\_100kBPS\_CFG2}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+100k\+BPS\+\_\+\+CFG2~(0xba)}
+
+\Hypertarget{mcp__can__dfs_8h_ab931f2bcc4d3a5adf70e5c69ca079abb}\label{mcp__can__dfs_8h_ab931f2bcc4d3a5adf70e5c69ca079abb} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_100kBPS\_CFG3@{MCP\_16MHz\_100kBPS\_CFG3}}
+\index{MCP\_16MHz\_100kBPS\_CFG3@{MCP\_16MHz\_100kBPS\_CFG3}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_100kBPS\_CFG3}{MCP\_16MHz\_100kBPS\_CFG3}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+100k\+BPS\+\_\+\+CFG3~(0x07)}
+
+\Hypertarget{mcp__can__dfs_8h_a993d8b64f41c5f8e52e2ce80ff47abcf}\label{mcp__can__dfs_8h_a993d8b64f41c5f8e52e2ce80ff47abcf} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_10kBPS\_CFG1@{MCP\_16MHz\_10kBPS\_CFG1}}
+\index{MCP\_16MHz\_10kBPS\_CFG1@{MCP\_16MHz\_10kBPS\_CFG1}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_10kBPS\_CFG1}{MCP\_16MHz\_10kBPS\_CFG1}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+10k\+BPS\+\_\+\+CFG1~(0x1f)}
+
+\Hypertarget{mcp__can__dfs_8h_a17ed5eebea6f59ef4ad1e0233b6658dd}\label{mcp__can__dfs_8h_a17ed5eebea6f59ef4ad1e0233b6658dd} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_10kBPS\_CFG2@{MCP\_16MHz\_10kBPS\_CFG2}}
+\index{MCP\_16MHz\_10kBPS\_CFG2@{MCP\_16MHz\_10kBPS\_CFG2}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_10kBPS\_CFG2}{MCP\_16MHz\_10kBPS\_CFG2}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+10k\+BPS\+\_\+\+CFG2~(0xbf)}
+
+\Hypertarget{mcp__can__dfs_8h_a89c26e3e3193d593eb4d9288e7af45e0}\label{mcp__can__dfs_8h_a89c26e3e3193d593eb4d9288e7af45e0} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_10kBPS\_CFG3@{MCP\_16MHz\_10kBPS\_CFG3}}
+\index{MCP\_16MHz\_10kBPS\_CFG3@{MCP\_16MHz\_10kBPS\_CFG3}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_10kBPS\_CFG3}{MCP\_16MHz\_10kBPS\_CFG3}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+10k\+BPS\+\_\+\+CFG3~(0x07)}
+
+\Hypertarget{mcp__can__dfs_8h_af10501fc4ebad1fa7dd8f97ab2c596e7}\label{mcp__can__dfs_8h_af10501fc4ebad1fa7dd8f97ab2c596e7} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_125kBPS\_CFG1@{MCP\_16MHz\_125kBPS\_CFG1}}
+\index{MCP\_16MHz\_125kBPS\_CFG1@{MCP\_16MHz\_125kBPS\_CFG1}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_125kBPS\_CFG1}{MCP\_16MHz\_125kBPS\_CFG1}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+125k\+BPS\+\_\+\+CFG1~(0x01)}
+
+\Hypertarget{mcp__can__dfs_8h_a2b46491d0bd1b499805471549fea63a2}\label{mcp__can__dfs_8h_a2b46491d0bd1b499805471549fea63a2} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_125kBPS\_CFG2@{MCP\_16MHz\_125kBPS\_CFG2}}
+\index{MCP\_16MHz\_125kBPS\_CFG2@{MCP\_16MHz\_125kBPS\_CFG2}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_125kBPS\_CFG2}{MCP\_16MHz\_125kBPS\_CFG2}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+125k\+BPS\+\_\+\+CFG2~(0xba)}
+
+\Hypertarget{mcp__can__dfs_8h_abcb28f9371cf39b67c6e3ec251b5789c}\label{mcp__can__dfs_8h_abcb28f9371cf39b67c6e3ec251b5789c} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_125kBPS\_CFG3@{MCP\_16MHz\_125kBPS\_CFG3}}
+\index{MCP\_16MHz\_125kBPS\_CFG3@{MCP\_16MHz\_125kBPS\_CFG3}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_125kBPS\_CFG3}{MCP\_16MHz\_125kBPS\_CFG3}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+125k\+BPS\+\_\+\+CFG3~(0x07)}
+
+\Hypertarget{mcp__can__dfs_8h_abecf62af808d83b9c553709c4c730f04}\label{mcp__can__dfs_8h_abecf62af808d83b9c553709c4c730f04} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_200kBPS\_CFG1@{MCP\_16MHz\_200kBPS\_CFG1}}
+\index{MCP\_16MHz\_200kBPS\_CFG1@{MCP\_16MHz\_200kBPS\_CFG1}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_200kBPS\_CFG1}{MCP\_16MHz\_200kBPS\_CFG1}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+200k\+BPS\+\_\+\+CFG1~(0x00)}
+
+\Hypertarget{mcp__can__dfs_8h_a35d31c6b2d6b7b1f7a8dd7f949260b25}\label{mcp__can__dfs_8h_a35d31c6b2d6b7b1f7a8dd7f949260b25} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_200kBPS\_CFG2@{MCP\_16MHz\_200kBPS\_CFG2}}
+\index{MCP\_16MHz\_200kBPS\_CFG2@{MCP\_16MHz\_200kBPS\_CFG2}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_200kBPS\_CFG2}{MCP\_16MHz\_200kBPS\_CFG2}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+200k\+BPS\+\_\+\+CFG2~(0xba)}
+
+\Hypertarget{mcp__can__dfs_8h_a4ca071c33865a45c8b532fdc0e8189b5}\label{mcp__can__dfs_8h_a4ca071c33865a45c8b532fdc0e8189b5} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_200kBPS\_CFG3@{MCP\_16MHz\_200kBPS\_CFG3}}
+\index{MCP\_16MHz\_200kBPS\_CFG3@{MCP\_16MHz\_200kBPS\_CFG3}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_200kBPS\_CFG3}{MCP\_16MHz\_200kBPS\_CFG3}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+200k\+BPS\+\_\+\+CFG3~(0x07)}
+
+\Hypertarget{mcp__can__dfs_8h_aee1f1a12abe36e50a4d4aa26bede852d}\label{mcp__can__dfs_8h_aee1f1a12abe36e50a4d4aa26bede852d} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_20kBPS\_CFG1@{MCP\_16MHz\_20kBPS\_CFG1}}
+\index{MCP\_16MHz\_20kBPS\_CFG1@{MCP\_16MHz\_20kBPS\_CFG1}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_20kBPS\_CFG1}{MCP\_16MHz\_20kBPS\_CFG1}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+20k\+BPS\+\_\+\+CFG1~(0x0f)}
+
+\Hypertarget{mcp__can__dfs_8h_a5902f0b75095072ab8afe6f299cbbf0f}\label{mcp__can__dfs_8h_a5902f0b75095072ab8afe6f299cbbf0f} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_20kBPS\_CFG2@{MCP\_16MHz\_20kBPS\_CFG2}}
+\index{MCP\_16MHz\_20kBPS\_CFG2@{MCP\_16MHz\_20kBPS\_CFG2}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_20kBPS\_CFG2}{MCP\_16MHz\_20kBPS\_CFG2}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+20k\+BPS\+\_\+\+CFG2~(0xbf)}
+
+\Hypertarget{mcp__can__dfs_8h_a43bc3881a644f266569d6c906a8d0362}\label{mcp__can__dfs_8h_a43bc3881a644f266569d6c906a8d0362} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_20kBPS\_CFG3@{MCP\_16MHz\_20kBPS\_CFG3}}
+\index{MCP\_16MHz\_20kBPS\_CFG3@{MCP\_16MHz\_20kBPS\_CFG3}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_20kBPS\_CFG3}{MCP\_16MHz\_20kBPS\_CFG3}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+20k\+BPS\+\_\+\+CFG3~(0x07)}
+
+\Hypertarget{mcp__can__dfs_8h_a8253873ee8a937180b718afef223a5c5}\label{mcp__can__dfs_8h_a8253873ee8a937180b718afef223a5c5} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_250kBPS\_CFG1@{MCP\_16MHz\_250kBPS\_CFG1}}
+\index{MCP\_16MHz\_250kBPS\_CFG1@{MCP\_16MHz\_250kBPS\_CFG1}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_250kBPS\_CFG1}{MCP\_16MHz\_250kBPS\_CFG1}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+250k\+BPS\+\_\+\+CFG1~(0x01)}
+
+\Hypertarget{mcp__can__dfs_8h_a5e4d523583a7eab66f4807b7aff65270}\label{mcp__can__dfs_8h_a5e4d523583a7eab66f4807b7aff65270} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_250kBPS\_CFG2@{MCP\_16MHz\_250kBPS\_CFG2}}
+\index{MCP\_16MHz\_250kBPS\_CFG2@{MCP\_16MHz\_250kBPS\_CFG2}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_250kBPS\_CFG2}{MCP\_16MHz\_250kBPS\_CFG2}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+250k\+BPS\+\_\+\+CFG2~(0xb0)}
+
+\Hypertarget{mcp__can__dfs_8h_a6236f3216b1bbb72677d3a534a14e0ef}\label{mcp__can__dfs_8h_a6236f3216b1bbb72677d3a534a14e0ef} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_250kBPS\_CFG3@{MCP\_16MHz\_250kBPS\_CFG3}}
+\index{MCP\_16MHz\_250kBPS\_CFG3@{MCP\_16MHz\_250kBPS\_CFG3}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_250kBPS\_CFG3}{MCP\_16MHz\_250kBPS\_CFG3}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+250k\+BPS\+\_\+\+CFG3~(0x06)}
+
+\Hypertarget{mcp__can__dfs_8h_a3866bc81d8f0bab4a50ffe2350409604}\label{mcp__can__dfs_8h_a3866bc81d8f0bab4a50ffe2350409604} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_40kBPS\_CFG1@{MCP\_16MHz\_40kBPS\_CFG1}}
+\index{MCP\_16MHz\_40kBPS\_CFG1@{MCP\_16MHz\_40kBPS\_CFG1}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_40kBPS\_CFG1}{MCP\_16MHz\_40kBPS\_CFG1}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+40k\+BPS\+\_\+\+CFG1~(0x07)}
+
+\Hypertarget{mcp__can__dfs_8h_a9b929834eeecdbd01189feb1a71ef832}\label{mcp__can__dfs_8h_a9b929834eeecdbd01189feb1a71ef832} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_40kBPS\_CFG2@{MCP\_16MHz\_40kBPS\_CFG2}}
+\index{MCP\_16MHz\_40kBPS\_CFG2@{MCP\_16MHz\_40kBPS\_CFG2}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_40kBPS\_CFG2}{MCP\_16MHz\_40kBPS\_CFG2}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+40k\+BPS\+\_\+\+CFG2~(0xbf)}
+
+\Hypertarget{mcp__can__dfs_8h_a29524676f5a869df5f33215727d7887f}\label{mcp__can__dfs_8h_a29524676f5a869df5f33215727d7887f} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_40kBPS\_CFG3@{MCP\_16MHz\_40kBPS\_CFG3}}
+\index{MCP\_16MHz\_40kBPS\_CFG3@{MCP\_16MHz\_40kBPS\_CFG3}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_40kBPS\_CFG3}{MCP\_16MHz\_40kBPS\_CFG3}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+40k\+BPS\+\_\+\+CFG3~(0x07)}
+
+\Hypertarget{mcp__can__dfs_8h_a60f65cfc4763f4f4e2830c1a805ba1bc}\label{mcp__can__dfs_8h_a60f65cfc4763f4f4e2830c1a805ba1bc} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_500kBPS\_CFG1@{MCP\_16MHz\_500kBPS\_CFG1}}
+\index{MCP\_16MHz\_500kBPS\_CFG1@{MCP\_16MHz\_500kBPS\_CFG1}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_500kBPS\_CFG1}{MCP\_16MHz\_500kBPS\_CFG1}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+500k\+BPS\+\_\+\+CFG1~(0x00)}
+
+\Hypertarget{mcp__can__dfs_8h_a78cfadcaf26d34d54b734453a20c0676}\label{mcp__can__dfs_8h_a78cfadcaf26d34d54b734453a20c0676} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_500kBPS\_CFG2@{MCP\_16MHz\_500kBPS\_CFG2}}
+\index{MCP\_16MHz\_500kBPS\_CFG2@{MCP\_16MHz\_500kBPS\_CFG2}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_500kBPS\_CFG2}{MCP\_16MHz\_500kBPS\_CFG2}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+500k\+BPS\+\_\+\+CFG2~(0xb0)}
+
+\Hypertarget{mcp__can__dfs_8h_a29b1be70e7e0c27f7ebee02de31b9324}\label{mcp__can__dfs_8h_a29b1be70e7e0c27f7ebee02de31b9324} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_500kBPS\_CFG3@{MCP\_16MHz\_500kBPS\_CFG3}}
+\index{MCP\_16MHz\_500kBPS\_CFG3@{MCP\_16MHz\_500kBPS\_CFG3}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_500kBPS\_CFG3}{MCP\_16MHz\_500kBPS\_CFG3}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+500k\+BPS\+\_\+\+CFG3~(0x06)}
+
+\Hypertarget{mcp__can__dfs_8h_a8a26ec918f1aca9346b81e67148662b9}\label{mcp__can__dfs_8h_a8a26ec918f1aca9346b81e67148662b9} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_50kBPS\_CFG1@{MCP\_16MHz\_50kBPS\_CFG1}}
+\index{MCP\_16MHz\_50kBPS\_CFG1@{MCP\_16MHz\_50kBPS\_CFG1}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_50kBPS\_CFG1}{MCP\_16MHz\_50kBPS\_CFG1}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+50k\+BPS\+\_\+\+CFG1~(0x07)}
+
+\Hypertarget{mcp__can__dfs_8h_a943d7588bc35dc0705e54a4324344cf3}\label{mcp__can__dfs_8h_a943d7588bc35dc0705e54a4324344cf3} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_50kBPS\_CFG2@{MCP\_16MHz\_50kBPS\_CFG2}}
+\index{MCP\_16MHz\_50kBPS\_CFG2@{MCP\_16MHz\_50kBPS\_CFG2}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_50kBPS\_CFG2}{MCP\_16MHz\_50kBPS\_CFG2}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+50k\+BPS\+\_\+\+CFG2~(0xba)}
+
+\Hypertarget{mcp__can__dfs_8h_ae2f86de1526cbda7f5f08d80cf171c34}\label{mcp__can__dfs_8h_ae2f86de1526cbda7f5f08d80cf171c34} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_50kBPS\_CFG3@{MCP\_16MHz\_50kBPS\_CFG3}}
+\index{MCP\_16MHz\_50kBPS\_CFG3@{MCP\_16MHz\_50kBPS\_CFG3}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_50kBPS\_CFG3}{MCP\_16MHz\_50kBPS\_CFG3}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+50k\+BPS\+\_\+\+CFG3~(0x07)}
+
+\Hypertarget{mcp__can__dfs_8h_a40672ada2d15b6332f980b78aa6a7c3e}\label{mcp__can__dfs_8h_a40672ada2d15b6332f980b78aa6a7c3e} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_5kBPS\_CFG1@{MCP\_16MHz\_5kBPS\_CFG1}}
+\index{MCP\_16MHz\_5kBPS\_CFG1@{MCP\_16MHz\_5kBPS\_CFG1}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_5kBPS\_CFG1}{MCP\_16MHz\_5kBPS\_CFG1}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+5k\+BPS\+\_\+\+CFG1~(0x3f)}
+
+\Hypertarget{mcp__can__dfs_8h_a93739fdd45d533f1e405371c38f352d1}\label{mcp__can__dfs_8h_a93739fdd45d533f1e405371c38f352d1} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_5kBPS\_CFG2@{MCP\_16MHz\_5kBPS\_CFG2}}
+\index{MCP\_16MHz\_5kBPS\_CFG2@{MCP\_16MHz\_5kBPS\_CFG2}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_5kBPS\_CFG2}{MCP\_16MHz\_5kBPS\_CFG2}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+5k\+BPS\+\_\+\+CFG2~(0xbf)}
+
+\Hypertarget{mcp__can__dfs_8h_ab3d10733e569cbff26e7ba9491580711}\label{mcp__can__dfs_8h_ab3d10733e569cbff26e7ba9491580711} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_5kBPS\_CFG3@{MCP\_16MHz\_5kBPS\_CFG3}}
+\index{MCP\_16MHz\_5kBPS\_CFG3@{MCP\_16MHz\_5kBPS\_CFG3}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_5kBPS\_CFG3}{MCP\_16MHz\_5kBPS\_CFG3}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+5k\+BPS\+\_\+\+CFG3~(0x07)}
+
+\Hypertarget{mcp__can__dfs_8h_a533b1ffc728cbb6971faf94854a02652}\label{mcp__can__dfs_8h_a533b1ffc728cbb6971faf94854a02652} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_80kBPS\_CFG1@{MCP\_16MHz\_80kBPS\_CFG1}}
+\index{MCP\_16MHz\_80kBPS\_CFG1@{MCP\_16MHz\_80kBPS\_CFG1}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_80kBPS\_CFG1}{MCP\_16MHz\_80kBPS\_CFG1}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+80k\+BPS\+\_\+\+CFG1~(0x03)}
+
+\Hypertarget{mcp__can__dfs_8h_a40dd00ee8e3d7553faa0471a28fb7d89}\label{mcp__can__dfs_8h_a40dd00ee8e3d7553faa0471a28fb7d89} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_80kBPS\_CFG2@{MCP\_16MHz\_80kBPS\_CFG2}}
+\index{MCP\_16MHz\_80kBPS\_CFG2@{MCP\_16MHz\_80kBPS\_CFG2}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_80kBPS\_CFG2}{MCP\_16MHz\_80kBPS\_CFG2}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+80k\+BPS\+\_\+\+CFG2~(0xbf)}
+
+\Hypertarget{mcp__can__dfs_8h_a723c1ec2fc26f9ac28741e6b49eef9d1}\label{mcp__can__dfs_8h_a723c1ec2fc26f9ac28741e6b49eef9d1} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_16MHz\_80kBPS\_CFG3@{MCP\_16MHz\_80kBPS\_CFG3}}
+\index{MCP\_16MHz\_80kBPS\_CFG3@{MCP\_16MHz\_80kBPS\_CFG3}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_16MHz\_80kBPS\_CFG3}{MCP\_16MHz\_80kBPS\_CFG3}}
+{\footnotesize\ttfamily \#define MCP\+\_\+16\+MHz\+\_\+80k\+BPS\+\_\+\+CFG3~(0x07)}
+
+\Hypertarget{mcp__can__dfs_8h_a543c929782b34e62d94a08d187371167}\label{mcp__can__dfs_8h_a543c929782b34e62d94a08d187371167} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_ALLTXBUSY@{MCP\_ALLTXBUSY}}
+\index{MCP\_ALLTXBUSY@{MCP\_ALLTXBUSY}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_ALLTXBUSY}{MCP\_ALLTXBUSY}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+ALLTXBUSY~(2)}
+
+\Hypertarget{mcp__can__dfs_8h_a973305a49ffc6eed476689b0a8dd69e6}\label{mcp__can__dfs_8h_a973305a49ffc6eed476689b0a8dd69e6} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_BITMOD@{MCP\_BITMOD}}
+\index{MCP\_BITMOD@{MCP\_BITMOD}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_BITMOD}{MCP\_BITMOD}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+BITMOD~0x05}
+
+\Hypertarget{mcp__can__dfs_8h_a25864642b445cbfbd85f2a1a22947558}\label{mcp__can__dfs_8h_a25864642b445cbfbd85f2a1a22947558} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_CANCTRL@{MCP\_CANCTRL}}
+\index{MCP\_CANCTRL@{MCP\_CANCTRL}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_CANCTRL}{MCP\_CANCTRL}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+CANCTRL~0x0F}
+
+\Hypertarget{mcp__can__dfs_8h_a778de33d21ab2eb875533a31a2e8ec69}\label{mcp__can__dfs_8h_a778de33d21ab2eb875533a31a2e8ec69} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_CANINTE@{MCP\_CANINTE}}
+\index{MCP\_CANINTE@{MCP\_CANINTE}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_CANINTE}{MCP\_CANINTE}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+CANINTE~0x2B}
+
+\Hypertarget{mcp__can__dfs_8h_ae82ca28239a27c2f8c4871e654480ee3}\label{mcp__can__dfs_8h_ae82ca28239a27c2f8c4871e654480ee3} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_CANINTF@{MCP\_CANINTF}}
+\index{MCP\_CANINTF@{MCP\_CANINTF}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_CANINTF}{MCP\_CANINTF}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+CANINTF~0x2C}
+
+\Hypertarget{mcp__can__dfs_8h_a1a470d80ae3644bf02f2cd4a7bb6aa39}\label{mcp__can__dfs_8h_a1a470d80ae3644bf02f2cd4a7bb6aa39} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_CANSTAT@{MCP\_CANSTAT}}
+\index{MCP\_CANSTAT@{MCP\_CANSTAT}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_CANSTAT}{MCP\_CANSTAT}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+CANSTAT~0x0E}
+
+\Hypertarget{mcp__can__dfs_8h_a0baef095a5a2997db4c75831e55e8e96}\label{mcp__can__dfs_8h_a0baef095a5a2997db4c75831e55e8e96} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_CNF1@{MCP\_CNF1}}
+\index{MCP\_CNF1@{MCP\_CNF1}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_CNF1}{MCP\_CNF1}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+CNF1~0x2A}
+
+\Hypertarget{mcp__can__dfs_8h_a2a22ce749e287690e3d85514e2c7cb57}\label{mcp__can__dfs_8h_a2a22ce749e287690e3d85514e2c7cb57} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_CNF2@{MCP\_CNF2}}
+\index{MCP\_CNF2@{MCP\_CNF2}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_CNF2}{MCP\_CNF2}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+CNF2~0x29}
+
+\Hypertarget{mcp__can__dfs_8h_ad2e13220f9c51ccd5efda5d3c19761b8}\label{mcp__can__dfs_8h_ad2e13220f9c51ccd5efda5d3c19761b8} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_CNF3@{MCP\_CNF3}}
+\index{MCP\_CNF3@{MCP\_CNF3}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_CNF3}{MCP\_CNF3}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+CNF3~0x28}
+
+\Hypertarget{mcp__can__dfs_8h_a630282e14cd74d1c2785df85585e2592}\label{mcp__can__dfs_8h_a630282e14cd74d1c2785df85585e2592} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_DLC\_MASK@{MCP\_DLC\_MASK}}
+\index{MCP\_DLC\_MASK@{MCP\_DLC\_MASK}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_DLC\_MASK}{MCP\_DLC\_MASK}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+DLC\+\_\+\+MASK~0x0F                                        /\texorpdfstring{$\ast$}{*} 4 LSBits                     \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{mcp__can__dfs_8h_a1695d6e956775335641f7f600439919c}\label{mcp__can__dfs_8h_a1695d6e956775335641f7f600439919c} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_EFLG@{MCP\_EFLG}}
+\index{MCP\_EFLG@{MCP\_EFLG}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_EFLG}{MCP\_EFLG}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+EFLG~0x2D}
+
+\Hypertarget{mcp__can__dfs_8h_a955c11c53f26126aea5a355013e1d72d}\label{mcp__can__dfs_8h_a955c11c53f26126aea5a355013e1d72d} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_EFLG\_ERRORMASK@{MCP\_EFLG\_ERRORMASK}}
+\index{MCP\_EFLG\_ERRORMASK@{MCP\_EFLG\_ERRORMASK}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_EFLG\_ERRORMASK}{MCP\_EFLG\_ERRORMASK}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+EFLG\+\_\+\+ERRORMASK~(0x\+F8)                                      /\texorpdfstring{$\ast$}{*} 5 MS-\/Bits                    \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{mcp__can__dfs_8h_a169b388eed0b45a7d16e2ce72268b4a3}\label{mcp__can__dfs_8h_a169b388eed0b45a7d16e2ce72268b4a3} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_EFLG\_EWARN@{MCP\_EFLG\_EWARN}}
+\index{MCP\_EFLG\_EWARN@{MCP\_EFLG\_EWARN}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_EFLG\_EWARN}{MCP\_EFLG\_EWARN}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+EFLG\+\_\+\+EWARN~(1$<$$<$0)}
+
+\Hypertarget{mcp__can__dfs_8h_abbc882c0fabdb402921aea4ce7c9954d}\label{mcp__can__dfs_8h_abbc882c0fabdb402921aea4ce7c9954d} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_EFLG\_RX0OVR@{MCP\_EFLG\_RX0OVR}}
+\index{MCP\_EFLG\_RX0OVR@{MCP\_EFLG\_RX0OVR}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_EFLG\_RX0OVR}{MCP\_EFLG\_RX0OVR}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+EFLG\+\_\+\+RX0\+OVR~(1$<$$<$6)}
+
+\Hypertarget{mcp__can__dfs_8h_a523ab39e2acfad157ffc9bfff14ca980}\label{mcp__can__dfs_8h_a523ab39e2acfad157ffc9bfff14ca980} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_EFLG\_RX1OVR@{MCP\_EFLG\_RX1OVR}}
+\index{MCP\_EFLG\_RX1OVR@{MCP\_EFLG\_RX1OVR}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_EFLG\_RX1OVR}{MCP\_EFLG\_RX1OVR}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+EFLG\+\_\+\+RX1\+OVR~(1$<$$<$7)}
+
+\Hypertarget{mcp__can__dfs_8h_a9d9f6af20e45bb753b94c6359cb89881}\label{mcp__can__dfs_8h_a9d9f6af20e45bb753b94c6359cb89881} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_EFLG\_RXEP@{MCP\_EFLG\_RXEP}}
+\index{MCP\_EFLG\_RXEP@{MCP\_EFLG\_RXEP}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_EFLG\_RXEP}{MCP\_EFLG\_RXEP}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+EFLG\+\_\+\+RXEP~(1$<$$<$3)}
+
+\Hypertarget{mcp__can__dfs_8h_a38c03cd84f1a2181fc7d20a8347701f6}\label{mcp__can__dfs_8h_a38c03cd84f1a2181fc7d20a8347701f6} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_EFLG\_RXWAR@{MCP\_EFLG\_RXWAR}}
+\index{MCP\_EFLG\_RXWAR@{MCP\_EFLG\_RXWAR}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_EFLG\_RXWAR}{MCP\_EFLG\_RXWAR}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+EFLG\+\_\+\+RXWAR~(1$<$$<$1)}
+
+\Hypertarget{mcp__can__dfs_8h_ac073daeb7b5e21daa8c88cee36fc0237}\label{mcp__can__dfs_8h_ac073daeb7b5e21daa8c88cee36fc0237} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_EFLG\_TXBO@{MCP\_EFLG\_TXBO}}
+\index{MCP\_EFLG\_TXBO@{MCP\_EFLG\_TXBO}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_EFLG\_TXBO}{MCP\_EFLG\_TXBO}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+EFLG\+\_\+\+TXBO~(1$<$$<$5)}
+
+\Hypertarget{mcp__can__dfs_8h_a47f73eb0471464402400343a6739606b}\label{mcp__can__dfs_8h_a47f73eb0471464402400343a6739606b} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_EFLG\_TXEP@{MCP\_EFLG\_TXEP}}
+\index{MCP\_EFLG\_TXEP@{MCP\_EFLG\_TXEP}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_EFLG\_TXEP}{MCP\_EFLG\_TXEP}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+EFLG\+\_\+\+TXEP~(1$<$$<$4)}
+
+\Hypertarget{mcp__can__dfs_8h_a305f05174073bd0907c4f1fac9799cf0}\label{mcp__can__dfs_8h_a305f05174073bd0907c4f1fac9799cf0} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_EFLG\_TXWAR@{MCP\_EFLG\_TXWAR}}
+\index{MCP\_EFLG\_TXWAR@{MCP\_EFLG\_TXWAR}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_EFLG\_TXWAR}{MCP\_EFLG\_TXWAR}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+EFLG\+\_\+\+TXWAR~(1$<$$<$2)}
+
+\Hypertarget{mcp__can__dfs_8h_a66c75ffbde4e8b677fdbddf13d088bcd}\label{mcp__can__dfs_8h_a66c75ffbde4e8b677fdbddf13d088bcd} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_EID0@{MCP\_EID0}}
+\index{MCP\_EID0@{MCP\_EID0}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_EID0}{MCP\_EID0}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+EID0~3}
+
+\Hypertarget{mcp__can__dfs_8h_aa6059e32c37e0ca64743c50136dfee4c}\label{mcp__can__dfs_8h_aa6059e32c37e0ca64743c50136dfee4c} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_EID8@{MCP\_EID8}}
+\index{MCP\_EID8@{MCP\_EID8}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_EID8}{MCP\_EID8}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+EID8~2}
+
+\Hypertarget{mcp__can__dfs_8h_a5c1209adc4e7ee5a0f08b0bced532768}\label{mcp__can__dfs_8h_a5c1209adc4e7ee5a0f08b0bced532768} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_ERRIF@{MCP\_ERRIF}}
+\index{MCP\_ERRIF@{MCP\_ERRIF}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_ERRIF}{MCP\_ERRIF}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+ERRIF~0x20}
+
+\Hypertarget{mcp__can__dfs_8h_a22f24df177e60164eed1399565483d29}\label{mcp__can__dfs_8h_a22f24df177e60164eed1399565483d29} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_LOAD\_TX0@{MCP\_LOAD\_TX0}}
+\index{MCP\_LOAD\_TX0@{MCP\_LOAD\_TX0}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_LOAD\_TX0}{MCP\_LOAD\_TX0}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+LOAD\+\_\+\+TX0~0x40}
+
+\Hypertarget{mcp__can__dfs_8h_a39edf0ba0b6b50d37c284a01fc06c234}\label{mcp__can__dfs_8h_a39edf0ba0b6b50d37c284a01fc06c234} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_LOAD\_TX1@{MCP\_LOAD\_TX1}}
+\index{MCP\_LOAD\_TX1@{MCP\_LOAD\_TX1}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_LOAD\_TX1}{MCP\_LOAD\_TX1}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+LOAD\+\_\+\+TX1~0x42}
+
+\Hypertarget{mcp__can__dfs_8h_a0b09fb52864d8b5035fd0fae0fbebb06}\label{mcp__can__dfs_8h_a0b09fb52864d8b5035fd0fae0fbebb06} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_LOAD\_TX2@{MCP\_LOAD\_TX2}}
+\index{MCP\_LOAD\_TX2@{MCP\_LOAD\_TX2}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_LOAD\_TX2}{MCP\_LOAD\_TX2}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+LOAD\+\_\+\+TX2~0x44}
+
+\Hypertarget{mcp__can__dfs_8h_aefa5a3dc7ca94fee366e0418590063f6}\label{mcp__can__dfs_8h_aefa5a3dc7ca94fee366e0418590063f6} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_MERRF@{MCP\_MERRF}}
+\index{MCP\_MERRF@{MCP\_MERRF}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_MERRF}{MCP\_MERRF}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+MERRF~0x80}
+
+\Hypertarget{mcp__can__dfs_8h_abfaf599ecaac1eac51349615340e563c}\label{mcp__can__dfs_8h_abfaf599ecaac1eac51349615340e563c} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_N\_TXBUFFERS@{MCP\_N\_TXBUFFERS}}
+\index{MCP\_N\_TXBUFFERS@{MCP\_N\_TXBUFFERS}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_N\_TXBUFFERS}{MCP\_N\_TXBUFFERS}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+N\+\_\+\+TXBUFFERS~(3)}
+
+\Hypertarget{mcp__can__dfs_8h_a624142fcbb5afc5f20a28118cb4c0b09}\label{mcp__can__dfs_8h_a624142fcbb5afc5f20a28118cb4c0b09} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_NO\_INT@{MCP\_NO\_INT}}
+\index{MCP\_NO\_INT@{MCP\_NO\_INT}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_NO\_INT}{MCP\_NO\_INT}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+NO\+\_\+\+INT~0x00}
+
+\Hypertarget{mcp__can__dfs_8h_a1d9ce2ac1c72654e113298fc1307102a}\label{mcp__can__dfs_8h_a1d9ce2ac1c72654e113298fc1307102a} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_READ@{MCP\_READ}}
+\index{MCP\_READ@{MCP\_READ}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_READ}{MCP\_READ}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+READ~0x03}
+
+\Hypertarget{mcp__can__dfs_8h_a6d36244d972ea4161783204b65ff75e6}\label{mcp__can__dfs_8h_a6d36244d972ea4161783204b65ff75e6} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_READ\_RX0@{MCP\_READ\_RX0}}
+\index{MCP\_READ\_RX0@{MCP\_READ\_RX0}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_READ\_RX0}{MCP\_READ\_RX0}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+READ\+\_\+\+RX0~0x90}
+
+\Hypertarget{mcp__can__dfs_8h_a3e686dbe40426f42d3d8553171294458}\label{mcp__can__dfs_8h_a3e686dbe40426f42d3d8553171294458} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_READ\_RX1@{MCP\_READ\_RX1}}
+\index{MCP\_READ\_RX1@{MCP\_READ\_RX1}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_READ\_RX1}{MCP\_READ\_RX1}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+READ\+\_\+\+RX1~0x94}
+
+\Hypertarget{mcp__can__dfs_8h_a399014e8231cd5d4acd4bad7a8553bb7}\label{mcp__can__dfs_8h_a399014e8231cd5d4acd4bad7a8553bb7} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_READ\_STATUS@{MCP\_READ\_STATUS}}
+\index{MCP\_READ\_STATUS@{MCP\_READ\_STATUS}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_READ\_STATUS}{MCP\_READ\_STATUS}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+READ\+\_\+\+STATUS~0x\+A0}
+
+\Hypertarget{mcp__can__dfs_8h_a6f032cfd514ddf69f0bc8424cf924c4a}\label{mcp__can__dfs_8h_a6f032cfd514ddf69f0bc8424cf924c4a} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_REC@{MCP\_REC}}
+\index{MCP\_REC@{MCP\_REC}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_REC}{MCP\_REC}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+REC~0x1D}
+
+\Hypertarget{mcp__can__dfs_8h_a8538419d98eecb32d7b8a6e07e8a256f}\label{mcp__can__dfs_8h_a8538419d98eecb32d7b8a6e07e8a256f} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RESET@{MCP\_RESET}}
+\index{MCP\_RESET@{MCP\_RESET}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RESET}{MCP\_RESET}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RESET~0x\+C0}
+
+\Hypertarget{mcp__can__dfs_8h_a446f8a40b075ae3d1277cba6628d9d54}\label{mcp__can__dfs_8h_a446f8a40b075ae3d1277cba6628d9d54} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RTR\_MASK@{MCP\_RTR\_MASK}}
+\index{MCP\_RTR\_MASK@{MCP\_RTR\_MASK}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RTR\_MASK}{MCP\_RTR\_MASK}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RTR\+\_\+\+MASK~0x40                                        /\texorpdfstring{$\ast$}{*} (1$<$$<$6) Bit 6                 \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{mcp__can__dfs_8h_ade85afe7da126728c581e32c1fb9fb5b}\label{mcp__can__dfs_8h_ade85afe7da126728c581e32c1fb9fb5b} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RTS\_ALL@{MCP\_RTS\_ALL}}
+\index{MCP\_RTS\_ALL@{MCP\_RTS\_ALL}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RTS\_ALL}{MCP\_RTS\_ALL}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RTS\+\_\+\+ALL~0x87}
+
+\Hypertarget{mcp__can__dfs_8h_ad81495d052d65e3a97a4c2688119ac0e}\label{mcp__can__dfs_8h_ad81495d052d65e3a97a4c2688119ac0e} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RTS\_TX0@{MCP\_RTS\_TX0}}
+\index{MCP\_RTS\_TX0@{MCP\_RTS\_TX0}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RTS\_TX0}{MCP\_RTS\_TX0}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RTS\+\_\+\+TX0~0x81}
+
+\Hypertarget{mcp__can__dfs_8h_a6cc3f921cb8d7cd9323909466ad4307e}\label{mcp__can__dfs_8h_a6cc3f921cb8d7cd9323909466ad4307e} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RTS\_TX1@{MCP\_RTS\_TX1}}
+\index{MCP\_RTS\_TX1@{MCP\_RTS\_TX1}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RTS\_TX1}{MCP\_RTS\_TX1}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RTS\+\_\+\+TX1~0x82}
+
+\Hypertarget{mcp__can__dfs_8h_a0fa9efa8755c0ab500fc2e2da56126d0}\label{mcp__can__dfs_8h_a0fa9efa8755c0ab500fc2e2da56126d0} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RTS\_TX2@{MCP\_RTS\_TX2}}
+\index{MCP\_RTS\_TX2@{MCP\_RTS\_TX2}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RTS\_TX2}{MCP\_RTS\_TX2}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RTS\+\_\+\+TX2~0x84}
+
+\Hypertarget{mcp__can__dfs_8h_a44d0f7db08c98cfd446daab2b0a4ec8f}\label{mcp__can__dfs_8h_a44d0f7db08c98cfd446daab2b0a4ec8f} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RX0IF@{MCP\_RX0IF}}
+\index{MCP\_RX0IF@{MCP\_RX0IF}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RX0IF}{MCP\_RX0IF}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RX0\+IF~0x01}
+
+\Hypertarget{mcp__can__dfs_8h_a9fcfe75306166e89b598bd9519e2db8b}\label{mcp__can__dfs_8h_a9fcfe75306166e89b598bd9519e2db8b} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RX1IF@{MCP\_RX1IF}}
+\index{MCP\_RX1IF@{MCP\_RX1IF}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RX1IF}{MCP\_RX1IF}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RX1\+IF~0x02}
+
+\Hypertarget{mcp__can__dfs_8h_a7b3120302282594f99b9d8b3ff4bd675}\label{mcp__can__dfs_8h_a7b3120302282594f99b9d8b3ff4bd675} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RX\_INT@{MCP\_RX\_INT}}
+\index{MCP\_RX\_INT@{MCP\_RX\_INT}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RX\_INT}{MCP\_RX\_INT}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RX\+\_\+\+INT~0x03}
+
+\Hypertarget{mcp__can__dfs_8h_a6e47ae0eaa03f32a201ac45f4a755d73}\label{mcp__can__dfs_8h_a6e47ae0eaa03f32a201ac45f4a755d73} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RX\_STATUS@{MCP\_RX\_STATUS}}
+\index{MCP\_RX\_STATUS@{MCP\_RX\_STATUS}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RX\_STATUS}{MCP\_RX\_STATUS}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RX\+\_\+\+STATUS~0x\+B0}
+
+\Hypertarget{mcp__can__dfs_8h_a61b3cd8d6c29ea6abe1db7c566f1d3d0}\label{mcp__can__dfs_8h_a61b3cd8d6c29ea6abe1db7c566f1d3d0} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXB0CTRL@{MCP\_RXB0CTRL}}
+\index{MCP\_RXB0CTRL@{MCP\_RXB0CTRL}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXB0CTRL}{MCP\_RXB0CTRL}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXB0\+CTRL~0x60}
+
+\Hypertarget{mcp__can__dfs_8h_ad6151dfa9b6fee9b65db5bb70f41d4a1}\label{mcp__can__dfs_8h_ad6151dfa9b6fee9b65db5bb70f41d4a1} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXB0SIDH@{MCP\_RXB0SIDH}}
+\index{MCP\_RXB0SIDH@{MCP\_RXB0SIDH}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXB0SIDH}{MCP\_RXB0SIDH}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXB0\+SIDH~0x61}
+
+\Hypertarget{mcp__can__dfs_8h_a0715576ae1bb6db08da6699fed69b67b}\label{mcp__can__dfs_8h_a0715576ae1bb6db08da6699fed69b67b} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXB1CTRL@{MCP\_RXB1CTRL}}
+\index{MCP\_RXB1CTRL@{MCP\_RXB1CTRL}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXB1CTRL}{MCP\_RXB1CTRL}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXB1\+CTRL~0x70}
+
+\Hypertarget{mcp__can__dfs_8h_af4bddbf3d95eb41f4217b43c0da67391}\label{mcp__can__dfs_8h_af4bddbf3d95eb41f4217b43c0da67391} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXB1SIDH@{MCP\_RXB1SIDH}}
+\index{MCP\_RXB1SIDH@{MCP\_RXB1SIDH}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXB1SIDH}{MCP\_RXB1SIDH}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXB1\+SIDH~0x71}
+
+\Hypertarget{mcp__can__dfs_8h_a5c2f5d36953ddbc06a43f77b43d93912}\label{mcp__can__dfs_8h_a5c2f5d36953ddbc06a43f77b43d93912} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXB\_BUKT\_MASK@{MCP\_RXB\_BUKT\_MASK}}
+\index{MCP\_RXB\_BUKT\_MASK@{MCP\_RXB\_BUKT\_MASK}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXB\_BUKT\_MASK}{MCP\_RXB\_BUKT\_MASK}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXB\+\_\+\+BUKT\+\_\+\+MASK~(1$<$$<$2)}
+
+\Hypertarget{mcp__can__dfs_8h_a614bf5a03be4e6201bd287d92f83b89e}\label{mcp__can__dfs_8h_a614bf5a03be4e6201bd287d92f83b89e} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXB\_IDE\_M@{MCP\_RXB\_IDE\_M}}
+\index{MCP\_RXB\_IDE\_M@{MCP\_RXB\_IDE\_M}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXB\_IDE\_M}{MCP\_RXB\_IDE\_M}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXB\+\_\+\+IDE\+\_\+M~0x08                                        /\texorpdfstring{$\ast$}{*} In RXBn\+SIDL                  \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{mcp__can__dfs_8h_a1a9ca52d9a7e933b24cd56325228a51a}\label{mcp__can__dfs_8h_a1a9ca52d9a7e933b24cd56325228a51a} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXB\_RTR\_M@{MCP\_RXB\_RTR\_M}}
+\index{MCP\_RXB\_RTR\_M@{MCP\_RXB\_RTR\_M}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXB\_RTR\_M}{MCP\_RXB\_RTR\_M}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXB\+\_\+\+RTR\+\_\+M~0x40                                        /\texorpdfstring{$\ast$}{*} In RXBn\+DLC                   \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{mcp__can__dfs_8h_a12561a183e93aa0207ef353517bf2614}\label{mcp__can__dfs_8h_a12561a183e93aa0207ef353517bf2614} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXB\_RX\_ANY@{MCP\_RXB\_RX\_ANY}}
+\index{MCP\_RXB\_RX\_ANY@{MCP\_RXB\_RX\_ANY}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXB\_RX\_ANY}{MCP\_RXB\_RX\_ANY}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXB\+\_\+\+RX\+\_\+\+ANY~0x60}
+
+\Hypertarget{mcp__can__dfs_8h_a2f18687a5ae7de0ccd920091f6f689f5}\label{mcp__can__dfs_8h_a2f18687a5ae7de0ccd920091f6f689f5} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXB\_RX\_EXT@{MCP\_RXB\_RX\_EXT}}
+\index{MCP\_RXB\_RX\_EXT@{MCP\_RXB\_RX\_EXT}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXB\_RX\_EXT}{MCP\_RXB\_RX\_EXT}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXB\+\_\+\+RX\+\_\+\+EXT~0x40}
+
+\Hypertarget{mcp__can__dfs_8h_a616f2c08db5827313e5111cf9565676d}\label{mcp__can__dfs_8h_a616f2c08db5827313e5111cf9565676d} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXB\_RX\_MASK@{MCP\_RXB\_RX\_MASK}}
+\index{MCP\_RXB\_RX\_MASK@{MCP\_RXB\_RX\_MASK}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXB\_RX\_MASK}{MCP\_RXB\_RX\_MASK}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXB\+\_\+\+RX\+\_\+\+MASK~0x60}
+
+\Hypertarget{mcp__can__dfs_8h_a00e3a0df5be34b1604196257cd006b12}\label{mcp__can__dfs_8h_a00e3a0df5be34b1604196257cd006b12} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXB\_RX\_STD@{MCP\_RXB\_RX\_STD}}
+\index{MCP\_RXB\_RX\_STD@{MCP\_RXB\_RX\_STD}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXB\_RX\_STD}{MCP\_RXB\_RX\_STD}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXB\+\_\+\+RX\+\_\+\+STD~0x20}
+
+\Hypertarget{mcp__can__dfs_8h_a4ed3076511142d0b372f7a3dce0edead}\label{mcp__can__dfs_8h_a4ed3076511142d0b372f7a3dce0edead} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXB\_RX\_STDEXT@{MCP\_RXB\_RX\_STDEXT}}
+\index{MCP\_RXB\_RX\_STDEXT@{MCP\_RXB\_RX\_STDEXT}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXB\_RX\_STDEXT}{MCP\_RXB\_RX\_STDEXT}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXB\+\_\+\+RX\+\_\+\+STDEXT~0x00}
+
+\Hypertarget{mcp__can__dfs_8h_a8b2774e9d8ae29eb0341b7aa3ce1e759}\label{mcp__can__dfs_8h_a8b2774e9d8ae29eb0341b7aa3ce1e759} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXBUF\_0@{MCP\_RXBUF\_0}}
+\index{MCP\_RXBUF\_0@{MCP\_RXBUF\_0}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXBUF\_0}{MCP\_RXBUF\_0}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXBUF\+\_\+0~(\mbox{\hyperlink{mcp__can__dfs_8h_ad6151dfa9b6fee9b65db5bb70f41d4a1}{MCP\+\_\+\+RXB0\+SIDH}})}
+
+\Hypertarget{mcp__can__dfs_8h_a9aff33c8adebd51d2fb8df068645997e}\label{mcp__can__dfs_8h_a9aff33c8adebd51d2fb8df068645997e} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXBUF\_1@{MCP\_RXBUF\_1}}
+\index{MCP\_RXBUF\_1@{MCP\_RXBUF\_1}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXBUF\_1}{MCP\_RXBUF\_1}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXBUF\+\_\+1~(\mbox{\hyperlink{mcp__can__dfs_8h_af4bddbf3d95eb41f4217b43c0da67391}{MCP\+\_\+\+RXB1\+SIDH}})}
+
+\Hypertarget{mcp__can__dfs_8h_a3de3114c44a811cbaabf1861ba55a690}\label{mcp__can__dfs_8h_a3de3114c44a811cbaabf1861ba55a690} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF0EID0@{MCP\_RXF0EID0}}
+\index{MCP\_RXF0EID0@{MCP\_RXF0EID0}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF0EID0}{MCP\_RXF0EID0}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF0\+EID0~0x03}
+
+\Hypertarget{mcp__can__dfs_8h_a1ec986ef1512da764c3394f50522b16b}\label{mcp__can__dfs_8h_a1ec986ef1512da764c3394f50522b16b} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF0EID8@{MCP\_RXF0EID8}}
+\index{MCP\_RXF0EID8@{MCP\_RXF0EID8}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF0EID8}{MCP\_RXF0EID8}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF0\+EID8~0x02}
+
+\Hypertarget{mcp__can__dfs_8h_ae421a063d5c9a67484389eb3eaebebfd}\label{mcp__can__dfs_8h_ae421a063d5c9a67484389eb3eaebebfd} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF0SIDH@{MCP\_RXF0SIDH}}
+\index{MCP\_RXF0SIDH@{MCP\_RXF0SIDH}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF0SIDH}{MCP\_RXF0SIDH}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF0\+SIDH~0x00}
+
+\Hypertarget{mcp__can__dfs_8h_a9c93381116e954e7a310e2dbbd2dbc4e}\label{mcp__can__dfs_8h_a9c93381116e954e7a310e2dbbd2dbc4e} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF0SIDL@{MCP\_RXF0SIDL}}
+\index{MCP\_RXF0SIDL@{MCP\_RXF0SIDL}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF0SIDL}{MCP\_RXF0SIDL}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF0\+SIDL~0x01}
+
+\Hypertarget{mcp__can__dfs_8h_a00edc9ebc006d15149797e48b82949c6}\label{mcp__can__dfs_8h_a00edc9ebc006d15149797e48b82949c6} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF1EID0@{MCP\_RXF1EID0}}
+\index{MCP\_RXF1EID0@{MCP\_RXF1EID0}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF1EID0}{MCP\_RXF1EID0}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF1\+EID0~0x07}
+
+\Hypertarget{mcp__can__dfs_8h_aecfcc2d9cddf17106316db150ac56f82}\label{mcp__can__dfs_8h_aecfcc2d9cddf17106316db150ac56f82} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF1EID8@{MCP\_RXF1EID8}}
+\index{MCP\_RXF1EID8@{MCP\_RXF1EID8}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF1EID8}{MCP\_RXF1EID8}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF1\+EID8~0x06}
+
+\Hypertarget{mcp__can__dfs_8h_a0e86a1817cd0b31a287b150dd322f972}\label{mcp__can__dfs_8h_a0e86a1817cd0b31a287b150dd322f972} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF1SIDH@{MCP\_RXF1SIDH}}
+\index{MCP\_RXF1SIDH@{MCP\_RXF1SIDH}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF1SIDH}{MCP\_RXF1SIDH}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF1\+SIDH~0x04}
+
+\Hypertarget{mcp__can__dfs_8h_ab57c15509135349cfac67fd74071cf01}\label{mcp__can__dfs_8h_ab57c15509135349cfac67fd74071cf01} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF1SIDL@{MCP\_RXF1SIDL}}
+\index{MCP\_RXF1SIDL@{MCP\_RXF1SIDL}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF1SIDL}{MCP\_RXF1SIDL}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF1\+SIDL~0x05}
+
+\Hypertarget{mcp__can__dfs_8h_ad9666d49e084c975e49d1f9f7c3df20a}\label{mcp__can__dfs_8h_ad9666d49e084c975e49d1f9f7c3df20a} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF2EID0@{MCP\_RXF2EID0}}
+\index{MCP\_RXF2EID0@{MCP\_RXF2EID0}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF2EID0}{MCP\_RXF2EID0}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF2\+EID0~0x0B}
+
+\Hypertarget{mcp__can__dfs_8h_a31643cf05e789b655d0bf66c100fc5ae}\label{mcp__can__dfs_8h_a31643cf05e789b655d0bf66c100fc5ae} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF2EID8@{MCP\_RXF2EID8}}
+\index{MCP\_RXF2EID8@{MCP\_RXF2EID8}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF2EID8}{MCP\_RXF2EID8}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF2\+EID8~0x0A}
+
+\Hypertarget{mcp__can__dfs_8h_a2961fd5700a7ae397d71911f328799e3}\label{mcp__can__dfs_8h_a2961fd5700a7ae397d71911f328799e3} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF2SIDH@{MCP\_RXF2SIDH}}
+\index{MCP\_RXF2SIDH@{MCP\_RXF2SIDH}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF2SIDH}{MCP\_RXF2SIDH}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF2\+SIDH~0x08}
+
+\Hypertarget{mcp__can__dfs_8h_a7fc1958385a3995ca062fba4ff14cb41}\label{mcp__can__dfs_8h_a7fc1958385a3995ca062fba4ff14cb41} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF2SIDL@{MCP\_RXF2SIDL}}
+\index{MCP\_RXF2SIDL@{MCP\_RXF2SIDL}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF2SIDL}{MCP\_RXF2SIDL}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF2\+SIDL~0x09}
+
+\Hypertarget{mcp__can__dfs_8h_ae6d1393bf6ade012e9de52ce3f781cc0}\label{mcp__can__dfs_8h_ae6d1393bf6ade012e9de52ce3f781cc0} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF3EID0@{MCP\_RXF3EID0}}
+\index{MCP\_RXF3EID0@{MCP\_RXF3EID0}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF3EID0}{MCP\_RXF3EID0}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF3\+EID0~0x13}
+
+\Hypertarget{mcp__can__dfs_8h_aec6f10e1f16aa75cf9a2c45cbf072c0c}\label{mcp__can__dfs_8h_aec6f10e1f16aa75cf9a2c45cbf072c0c} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF3EID8@{MCP\_RXF3EID8}}
+\index{MCP\_RXF3EID8@{MCP\_RXF3EID8}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF3EID8}{MCP\_RXF3EID8}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF3\+EID8~0x12}
+
+\Hypertarget{mcp__can__dfs_8h_a21d7a29b957697c7d35f7a6a8ab6fba7}\label{mcp__can__dfs_8h_a21d7a29b957697c7d35f7a6a8ab6fba7} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF3SIDH@{MCP\_RXF3SIDH}}
+\index{MCP\_RXF3SIDH@{MCP\_RXF3SIDH}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF3SIDH}{MCP\_RXF3SIDH}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF3\+SIDH~0x10}
+
+\Hypertarget{mcp__can__dfs_8h_a71d3d35f05bf08e68523a9efc61cfbfc}\label{mcp__can__dfs_8h_a71d3d35f05bf08e68523a9efc61cfbfc} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF3SIDL@{MCP\_RXF3SIDL}}
+\index{MCP\_RXF3SIDL@{MCP\_RXF3SIDL}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF3SIDL}{MCP\_RXF3SIDL}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF3\+SIDL~0x11}
+
+\Hypertarget{mcp__can__dfs_8h_a61e6e6a2b3c20e8d900bcb628854a404}\label{mcp__can__dfs_8h_a61e6e6a2b3c20e8d900bcb628854a404} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF4EID0@{MCP\_RXF4EID0}}
+\index{MCP\_RXF4EID0@{MCP\_RXF4EID0}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF4EID0}{MCP\_RXF4EID0}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF4\+EID0~0x17}
+
+\Hypertarget{mcp__can__dfs_8h_a3b8889cb0efb5374525dc60f8faa6e35}\label{mcp__can__dfs_8h_a3b8889cb0efb5374525dc60f8faa6e35} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF4EID8@{MCP\_RXF4EID8}}
+\index{MCP\_RXF4EID8@{MCP\_RXF4EID8}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF4EID8}{MCP\_RXF4EID8}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF4\+EID8~0x16}
+
+\Hypertarget{mcp__can__dfs_8h_a870788013a5eb433261fb4bbe755b798}\label{mcp__can__dfs_8h_a870788013a5eb433261fb4bbe755b798} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF4SIDH@{MCP\_RXF4SIDH}}
+\index{MCP\_RXF4SIDH@{MCP\_RXF4SIDH}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF4SIDH}{MCP\_RXF4SIDH}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF4\+SIDH~0x14}
+
+\Hypertarget{mcp__can__dfs_8h_a26ea2d067a97a328bdb355f5a1f9bcae}\label{mcp__can__dfs_8h_a26ea2d067a97a328bdb355f5a1f9bcae} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF4SIDL@{MCP\_RXF4SIDL}}
+\index{MCP\_RXF4SIDL@{MCP\_RXF4SIDL}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF4SIDL}{MCP\_RXF4SIDL}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF4\+SIDL~0x15}
+
+\Hypertarget{mcp__can__dfs_8h_a0dee7fada196f7183e8f709df24e0bc4}\label{mcp__can__dfs_8h_a0dee7fada196f7183e8f709df24e0bc4} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF5EID0@{MCP\_RXF5EID0}}
+\index{MCP\_RXF5EID0@{MCP\_RXF5EID0}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF5EID0}{MCP\_RXF5EID0}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF5\+EID0~0x1B}
+
+\Hypertarget{mcp__can__dfs_8h_ac44d4ade53dbe90f58d28d54f3ea4aa0}\label{mcp__can__dfs_8h_ac44d4ade53dbe90f58d28d54f3ea4aa0} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF5EID8@{MCP\_RXF5EID8}}
+\index{MCP\_RXF5EID8@{MCP\_RXF5EID8}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF5EID8}{MCP\_RXF5EID8}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF5\+EID8~0x1A}
+
+\Hypertarget{mcp__can__dfs_8h_ac7bc37d5b6536d6c4c15d8a36483fe79}\label{mcp__can__dfs_8h_ac7bc37d5b6536d6c4c15d8a36483fe79} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF5SIDH@{MCP\_RXF5SIDH}}
+\index{MCP\_RXF5SIDH@{MCP\_RXF5SIDH}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF5SIDH}{MCP\_RXF5SIDH}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF5\+SIDH~0x18}
+
+\Hypertarget{mcp__can__dfs_8h_ad4328ca7028ab38ac270f8547fb59582}\label{mcp__can__dfs_8h_ad4328ca7028ab38ac270f8547fb59582} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXF5SIDL@{MCP\_RXF5SIDL}}
+\index{MCP\_RXF5SIDL@{MCP\_RXF5SIDL}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXF5SIDL}{MCP\_RXF5SIDL}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXF5\+SIDL~0x19}
+
+\Hypertarget{mcp__can__dfs_8h_a85951b834260f01b30915e446542d3ef}\label{mcp__can__dfs_8h_a85951b834260f01b30915e446542d3ef} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXM0EID0@{MCP\_RXM0EID0}}
+\index{MCP\_RXM0EID0@{MCP\_RXM0EID0}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXM0EID0}{MCP\_RXM0EID0}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXM0\+EID0~0x23}
+
+\Hypertarget{mcp__can__dfs_8h_a0b72079ef3123f9384f8e8767c381086}\label{mcp__can__dfs_8h_a0b72079ef3123f9384f8e8767c381086} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXM0EID8@{MCP\_RXM0EID8}}
+\index{MCP\_RXM0EID8@{MCP\_RXM0EID8}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXM0EID8}{MCP\_RXM0EID8}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXM0\+EID8~0x22}
+
+\Hypertarget{mcp__can__dfs_8h_a74a0dc603b68c2ecbb63c3ed29010e17}\label{mcp__can__dfs_8h_a74a0dc603b68c2ecbb63c3ed29010e17} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXM0SIDH@{MCP\_RXM0SIDH}}
+\index{MCP\_RXM0SIDH@{MCP\_RXM0SIDH}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXM0SIDH}{MCP\_RXM0SIDH}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXM0\+SIDH~0x20}
+
+\Hypertarget{mcp__can__dfs_8h_acff5cba98baa23236a302a5b678d2899}\label{mcp__can__dfs_8h_acff5cba98baa23236a302a5b678d2899} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXM0SIDL@{MCP\_RXM0SIDL}}
+\index{MCP\_RXM0SIDL@{MCP\_RXM0SIDL}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXM0SIDL}{MCP\_RXM0SIDL}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXM0\+SIDL~0x21}
+
+\Hypertarget{mcp__can__dfs_8h_ae384be8c5a58d1425449b1764ba3fdea}\label{mcp__can__dfs_8h_ae384be8c5a58d1425449b1764ba3fdea} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXM1EID0@{MCP\_RXM1EID0}}
+\index{MCP\_RXM1EID0@{MCP\_RXM1EID0}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXM1EID0}{MCP\_RXM1EID0}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXM1\+EID0~0x27}
+
+\Hypertarget{mcp__can__dfs_8h_aac7b0eb43bfd43104e1876e9d75339b6}\label{mcp__can__dfs_8h_aac7b0eb43bfd43104e1876e9d75339b6} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXM1EID8@{MCP\_RXM1EID8}}
+\index{MCP\_RXM1EID8@{MCP\_RXM1EID8}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXM1EID8}{MCP\_RXM1EID8}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXM1\+EID8~0x26}
+
+\Hypertarget{mcp__can__dfs_8h_af33255d20e7adbb274843351676d15bd}\label{mcp__can__dfs_8h_af33255d20e7adbb274843351676d15bd} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXM1SIDH@{MCP\_RXM1SIDH}}
+\index{MCP\_RXM1SIDH@{MCP\_RXM1SIDH}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXM1SIDH}{MCP\_RXM1SIDH}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXM1\+SIDH~0x24}
+
+\Hypertarget{mcp__can__dfs_8h_abc4c9f616f34a1adef4dc2526ffeb95b}\label{mcp__can__dfs_8h_abc4c9f616f34a1adef4dc2526ffeb95b} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_RXM1SIDL@{MCP\_RXM1SIDL}}
+\index{MCP\_RXM1SIDL@{MCP\_RXM1SIDL}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_RXM1SIDL}{MCP\_RXM1SIDL}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+RXM1\+SIDL~0x25}
+
+\Hypertarget{mcp__can__dfs_8h_a1253d918bad50515a17845ded3dfb041}\label{mcp__can__dfs_8h_a1253d918bad50515a17845ded3dfb041} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_SIDH@{MCP\_SIDH}}
+\index{MCP\_SIDH@{MCP\_SIDH}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_SIDH}{MCP\_SIDH}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+SIDH~0}
+
+\Hypertarget{mcp__can__dfs_8h_aebb1817d5c24951ebf398a342a4af650}\label{mcp__can__dfs_8h_aebb1817d5c24951ebf398a342a4af650} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_SIDL@{MCP\_SIDL}}
+\index{MCP\_SIDL@{MCP\_SIDL}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_SIDL}{MCP\_SIDL}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+SIDL~1}
+
+\Hypertarget{mcp__can__dfs_8h_a43377642fe1721e1fc886ac5ab5da2d8}\label{mcp__can__dfs_8h_a43377642fe1721e1fc886ac5ab5da2d8} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_STAT\_RX0IF@{MCP\_STAT\_RX0IF}}
+\index{MCP\_STAT\_RX0IF@{MCP\_STAT\_RX0IF}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_STAT\_RX0IF}{MCP\_STAT\_RX0IF}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+STAT\+\_\+\+RX0\+IF~(1$<$$<$0)}
+
+\Hypertarget{mcp__can__dfs_8h_a4b4ab63d7a1081b103cfde05162c9a31}\label{mcp__can__dfs_8h_a4b4ab63d7a1081b103cfde05162c9a31} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_STAT\_RX1IF@{MCP\_STAT\_RX1IF}}
+\index{MCP\_STAT\_RX1IF@{MCP\_STAT\_RX1IF}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_STAT\_RX1IF}{MCP\_STAT\_RX1IF}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+STAT\+\_\+\+RX1\+IF~(1$<$$<$1)}
+
+\Hypertarget{mcp__can__dfs_8h_a3c9d49cd1ceddbabbe2d0c0847352675}\label{mcp__can__dfs_8h_a3c9d49cd1ceddbabbe2d0c0847352675} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_STAT\_RXIF\_MASK@{MCP\_STAT\_RXIF\_MASK}}
+\index{MCP\_STAT\_RXIF\_MASK@{MCP\_STAT\_RXIF\_MASK}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_STAT\_RXIF\_MASK}{MCP\_STAT\_RXIF\_MASK}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+STAT\+\_\+\+RXIF\+\_\+\+MASK~(0x03)}
+
+\Hypertarget{mcp__can__dfs_8h_a408a3bfd90d57612646979a8b69497c4}\label{mcp__can__dfs_8h_a408a3bfd90d57612646979a8b69497c4} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_TEC@{MCP\_TEC}}
+\index{MCP\_TEC@{MCP\_TEC}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_TEC}{MCP\_TEC}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+TEC~0x1C}
+
+\Hypertarget{mcp__can__dfs_8h_a7b02ec9eead23e76447f5842404f5af7}\label{mcp__can__dfs_8h_a7b02ec9eead23e76447f5842404f5af7} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_TX01\_INT@{MCP\_TX01\_INT}}
+\index{MCP\_TX01\_INT@{MCP\_TX01\_INT}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_TX01\_INT}{MCP\_TX01\_INT}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+TX01\+\_\+\+INT~0x0C}
+
+\Hypertarget{mcp__can__dfs_8h_ab23e4c7ad318b4c22601f710cbdacbaf}\label{mcp__can__dfs_8h_ab23e4c7ad318b4c22601f710cbdacbaf} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_TX01\_MASK@{MCP\_TX01\_MASK}}
+\index{MCP\_TX01\_MASK@{MCP\_TX01\_MASK}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_TX01\_MASK}{MCP\_TX01\_MASK}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+TX01\+\_\+\+MASK~0x14}
+
+\Hypertarget{mcp__can__dfs_8h_a28eb84f8219613a6da1f46b7d0672ad0}\label{mcp__can__dfs_8h_a28eb84f8219613a6da1f46b7d0672ad0} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_TX0IF@{MCP\_TX0IF}}
+\index{MCP\_TX0IF@{MCP\_TX0IF}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_TX0IF}{MCP\_TX0IF}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+TX0\+IF~0x04}
+
+\Hypertarget{mcp__can__dfs_8h_adb11d8db50d2832ba339ae4c100bdcca}\label{mcp__can__dfs_8h_adb11d8db50d2832ba339ae4c100bdcca} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_TX1IF@{MCP\_TX1IF}}
+\index{MCP\_TX1IF@{MCP\_TX1IF}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_TX1IF}{MCP\_TX1IF}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+TX1\+IF~0x08}
+
+\Hypertarget{mcp__can__dfs_8h_adee823c1fd68b891ea7ed87f302cc021}\label{mcp__can__dfs_8h_adee823c1fd68b891ea7ed87f302cc021} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_TX2IF@{MCP\_TX2IF}}
+\index{MCP\_TX2IF@{MCP\_TX2IF}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_TX2IF}{MCP\_TX2IF}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+TX2\+IF~0x10}
+
+\Hypertarget{mcp__can__dfs_8h_a816cbe8c97b2c24a44425bad397348b9}\label{mcp__can__dfs_8h_a816cbe8c97b2c24a44425bad397348b9} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_TX\_INT@{MCP\_TX\_INT}}
+\index{MCP\_TX\_INT@{MCP\_TX\_INT}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_TX\_INT}{MCP\_TX\_INT}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+TX\+\_\+\+INT~0x1C}
+
+\Hypertarget{mcp__can__dfs_8h_a495863adad70a6e84ef9aaffc2158f45}\label{mcp__can__dfs_8h_a495863adad70a6e84ef9aaffc2158f45} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_TX\_MASK@{MCP\_TX\_MASK}}
+\index{MCP\_TX\_MASK@{MCP\_TX\_MASK}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_TX\_MASK}{MCP\_TX\_MASK}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+TX\+\_\+\+MASK~0x54}
+
+\Hypertarget{mcp__can__dfs_8h_a8141153ac7a7a40b71f49a3e029c33ac}\label{mcp__can__dfs_8h_a8141153ac7a7a40b71f49a3e029c33ac} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_TXB0CTRL@{MCP\_TXB0CTRL}}
+\index{MCP\_TXB0CTRL@{MCP\_TXB0CTRL}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_TXB0CTRL}{MCP\_TXB0CTRL}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+TXB0\+CTRL~0x30}
+
+\Hypertarget{mcp__can__dfs_8h_abc7ef66a386f13da6f893ea2f951693f}\label{mcp__can__dfs_8h_abc7ef66a386f13da6f893ea2f951693f} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_TXB1CTRL@{MCP\_TXB1CTRL}}
+\index{MCP\_TXB1CTRL@{MCP\_TXB1CTRL}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_TXB1CTRL}{MCP\_TXB1CTRL}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+TXB1\+CTRL~0x40}
+
+\Hypertarget{mcp__can__dfs_8h_ac43fb5cf36199d6cd0731d58a6f498c6}\label{mcp__can__dfs_8h_ac43fb5cf36199d6cd0731d58a6f498c6} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_TXB2CTRL@{MCP\_TXB2CTRL}}
+\index{MCP\_TXB2CTRL@{MCP\_TXB2CTRL}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_TXB2CTRL}{MCP\_TXB2CTRL}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+TXB2\+CTRL~0x50}
+
+\Hypertarget{mcp__can__dfs_8h_a5bcfb7682407394a460dc4b9ad0b44c0}\label{mcp__can__dfs_8h_a5bcfb7682407394a460dc4b9ad0b44c0} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_TXB\_ABTF\_M@{MCP\_TXB\_ABTF\_M}}
+\index{MCP\_TXB\_ABTF\_M@{MCP\_TXB\_ABTF\_M}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_TXB\_ABTF\_M}{MCP\_TXB\_ABTF\_M}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+TXB\+\_\+\+ABTF\+\_\+M~0x40}
+
+\Hypertarget{mcp__can__dfs_8h_ac1d2c859504db3de132548f32b4f4e5e}\label{mcp__can__dfs_8h_ac1d2c859504db3de132548f32b4f4e5e} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_TXB\_EXIDE\_M@{MCP\_TXB\_EXIDE\_M}}
+\index{MCP\_TXB\_EXIDE\_M@{MCP\_TXB\_EXIDE\_M}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_TXB\_EXIDE\_M}{MCP\_TXB\_EXIDE\_M}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+TXB\+\_\+\+EXIDE\+\_\+M~0x08                                        /\texorpdfstring{$\ast$}{*} In TXBn\+SIDL                  \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{mcp__can__dfs_8h_a31be6764ba472392b730b9e5d8d3c853}\label{mcp__can__dfs_8h_a31be6764ba472392b730b9e5d8d3c853} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_TXB\_MLOA\_M@{MCP\_TXB\_MLOA\_M}}
+\index{MCP\_TXB\_MLOA\_M@{MCP\_TXB\_MLOA\_M}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_TXB\_MLOA\_M}{MCP\_TXB\_MLOA\_M}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+TXB\+\_\+\+MLOA\+\_\+M~0x20}
+
+\Hypertarget{mcp__can__dfs_8h_a3532deb282aa913b554fcecda1583a68}\label{mcp__can__dfs_8h_a3532deb282aa913b554fcecda1583a68} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_TXB\_RTR\_M@{MCP\_TXB\_RTR\_M}}
+\index{MCP\_TXB\_RTR\_M@{MCP\_TXB\_RTR\_M}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_TXB\_RTR\_M}{MCP\_TXB\_RTR\_M}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+TXB\+\_\+\+RTR\+\_\+M~0x40                                        /\texorpdfstring{$\ast$}{*} In TXBn\+DLC                   \texorpdfstring{$\ast$}{*}/}
+
+\Hypertarget{mcp__can__dfs_8h_ae7f95f3f85a175ea45062de90b8ccc4f}\label{mcp__can__dfs_8h_ae7f95f3f85a175ea45062de90b8ccc4f} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_TXB\_TXBUFE\_M@{MCP\_TXB\_TXBUFE\_M}}
+\index{MCP\_TXB\_TXBUFE\_M@{MCP\_TXB\_TXBUFE\_M}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_TXB\_TXBUFE\_M}{MCP\_TXB\_TXBUFE\_M}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+TXB\+\_\+\+TXBUFE\+\_\+M~0x80}
+
+\Hypertarget{mcp__can__dfs_8h_a7d7ebf6415cef170f111573ef59d89dd}\label{mcp__can__dfs_8h_a7d7ebf6415cef170f111573ef59d89dd} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_TXB\_TXERR\_M@{MCP\_TXB\_TXERR\_M}}
+\index{MCP\_TXB\_TXERR\_M@{MCP\_TXB\_TXERR\_M}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_TXB\_TXERR\_M}{MCP\_TXB\_TXERR\_M}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+TXB\+\_\+\+TXERR\+\_\+M~0x10}
+
+\Hypertarget{mcp__can__dfs_8h_a1a46319b2abb5799ecff6c242c9c704e}\label{mcp__can__dfs_8h_a1a46319b2abb5799ecff6c242c9c704e} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_TXB\_TXIE\_M@{MCP\_TXB\_TXIE\_M}}
+\index{MCP\_TXB\_TXIE\_M@{MCP\_TXB\_TXIE\_M}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_TXB\_TXIE\_M}{MCP\_TXB\_TXIE\_M}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+TXB\+\_\+\+TXIE\+\_\+M~0x04}
+
+\Hypertarget{mcp__can__dfs_8h_ad25d0a0a423e1f6938ea3e7516101132}\label{mcp__can__dfs_8h_ad25d0a0a423e1f6938ea3e7516101132} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_TXB\_TXP10\_M@{MCP\_TXB\_TXP10\_M}}
+\index{MCP\_TXB\_TXP10\_M@{MCP\_TXB\_TXP10\_M}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_TXB\_TXP10\_M}{MCP\_TXB\_TXP10\_M}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+TXB\+\_\+\+TXP10\+\_\+M~0x03}
+
+\Hypertarget{mcp__can__dfs_8h_acd9c8c8f108353829207f034b618a40e}\label{mcp__can__dfs_8h_acd9c8c8f108353829207f034b618a40e} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_TXB\_TXREQ\_M@{MCP\_TXB\_TXREQ\_M}}
+\index{MCP\_TXB\_TXREQ\_M@{MCP\_TXB\_TXREQ\_M}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_TXB\_TXREQ\_M}{MCP\_TXB\_TXREQ\_M}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+TXB\+\_\+\+TXREQ\+\_\+M~0x08}
+
+\Hypertarget{mcp__can__dfs_8h_a86309745d44d7040ccbb116cb0b0de33}\label{mcp__can__dfs_8h_a86309745d44d7040ccbb116cb0b0de33} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_WAKIF@{MCP\_WAKIF}}
+\index{MCP\_WAKIF@{MCP\_WAKIF}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_WAKIF}{MCP\_WAKIF}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+WAKIF~0x40}
+
+\Hypertarget{mcp__can__dfs_8h_aa144564452e7a678d00d9727ce35f82f}\label{mcp__can__dfs_8h_aa144564452e7a678d00d9727ce35f82f} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCP\_WRITE@{MCP\_WRITE}}
+\index{MCP\_WRITE@{MCP\_WRITE}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCP\_WRITE}{MCP\_WRITE}}
+{\footnotesize\ttfamily \#define MCP\+\_\+\+WRITE~0x02}
+
+\Hypertarget{mcp__can__dfs_8h_a9623212b948fecee4edaf5c3ababaf0f}\label{mcp__can__dfs_8h_a9623212b948fecee4edaf5c3ababaf0f} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCPDEBUG@{MCPDEBUG}}
+\index{MCPDEBUG@{MCPDEBUG}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCPDEBUG}{MCPDEBUG}}
+{\footnotesize\ttfamily \#define MCPDEBUG~(0)}
+
+\Hypertarget{mcp__can__dfs_8h_af483660e2b8368fc27e17b49b2537928}\label{mcp__can__dfs_8h_af483660e2b8368fc27e17b49b2537928} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MCPDEBUG\_TXBUF@{MCPDEBUG\_TXBUF}}
+\index{MCPDEBUG\_TXBUF@{MCPDEBUG\_TXBUF}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MCPDEBUG\_TXBUF}{MCPDEBUG\_TXBUF}}
+{\footnotesize\ttfamily \#define MCPDEBUG\+\_\+\+TXBUF~(0)}
+
+\Hypertarget{mcp__can__dfs_8h_a5552a5de9b59914458ab99d568bf2763}\label{mcp__can__dfs_8h_a5552a5de9b59914458ab99d568bf2763} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MODE\_CONFIG@{MODE\_CONFIG}}
+\index{MODE\_CONFIG@{MODE\_CONFIG}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MODE\_CONFIG}{MODE\_CONFIG}}
+{\footnotesize\ttfamily \#define MODE\+\_\+\+CONFIG~0x80}
+
+\Hypertarget{mcp__can__dfs_8h_a69067e4f8f3aad92757c47fa9a1edce4}\label{mcp__can__dfs_8h_a69067e4f8f3aad92757c47fa9a1edce4} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MODE\_LISTENONLY@{MODE\_LISTENONLY}}
+\index{MODE\_LISTENONLY@{MODE\_LISTENONLY}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MODE\_LISTENONLY}{MODE\_LISTENONLY}}
+{\footnotesize\ttfamily \#define MODE\+\_\+\+LISTENONLY~0x60}
+
+\Hypertarget{mcp__can__dfs_8h_af45bc9b0ed8edccc1c6c237d83d8ec8d}\label{mcp__can__dfs_8h_af45bc9b0ed8edccc1c6c237d83d8ec8d} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MODE\_LOOPBACK@{MODE\_LOOPBACK}}
+\index{MODE\_LOOPBACK@{MODE\_LOOPBACK}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MODE\_LOOPBACK}{MODE\_LOOPBACK}}
+{\footnotesize\ttfamily \#define MODE\+\_\+\+LOOPBACK~0x40}
+
+\Hypertarget{mcp__can__dfs_8h_aba2b187200eec47c5fc32655e296783d}\label{mcp__can__dfs_8h_aba2b187200eec47c5fc32655e296783d} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MODE\_MASK@{MODE\_MASK}}
+\index{MODE\_MASK@{MODE\_MASK}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MODE\_MASK}{MODE\_MASK}}
+{\footnotesize\ttfamily \#define MODE\+\_\+\+MASK~0x\+E0}
+
+\Hypertarget{mcp__can__dfs_8h_a199e55c829920c767a3f1f42a6a7c1d8}\label{mcp__can__dfs_8h_a199e55c829920c767a3f1f42a6a7c1d8} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MODE\_NORMAL@{MODE\_NORMAL}}
+\index{MODE\_NORMAL@{MODE\_NORMAL}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MODE\_NORMAL}{MODE\_NORMAL}}
+{\footnotesize\ttfamily \#define MODE\+\_\+\+NORMAL~0x00}
+
+\Hypertarget{mcp__can__dfs_8h_a81abe0ed7526093905ddcf168243f233}\label{mcp__can__dfs_8h_a81abe0ed7526093905ddcf168243f233} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MODE\_ONESHOT@{MODE\_ONESHOT}}
+\index{MODE\_ONESHOT@{MODE\_ONESHOT}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MODE\_ONESHOT}{MODE\_ONESHOT}}
+{\footnotesize\ttfamily \#define MODE\+\_\+\+ONESHOT~0x08}
+
+\Hypertarget{mcp__can__dfs_8h_a6cba238eaa939c8747d20c8685236ee0}\label{mcp__can__dfs_8h_a6cba238eaa939c8747d20c8685236ee0} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MODE\_POWERUP@{MODE\_POWERUP}}
+\index{MODE\_POWERUP@{MODE\_POWERUP}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MODE\_POWERUP}{MODE\_POWERUP}}
+{\footnotesize\ttfamily \#define MODE\+\_\+\+POWERUP~0x\+E0}
+
+\Hypertarget{mcp__can__dfs_8h_a2d957317ff490fa73cd4377d5ebf0b0d}\label{mcp__can__dfs_8h_a2d957317ff490fa73cd4377d5ebf0b0d} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!MODE\_SLEEP@{MODE\_SLEEP}}
+\index{MODE\_SLEEP@{MODE\_SLEEP}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{MODE\_SLEEP}{MODE\_SLEEP}}
+{\footnotesize\ttfamily \#define MODE\+\_\+\+SLEEP~0x20}
+
+\Hypertarget{mcp__can__dfs_8h_aee91de8fdfa7f84d2e9102b15dc3ad5d}\label{mcp__can__dfs_8h_aee91de8fdfa7f84d2e9102b15dc3ad5d} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!SAMPLE\_1X@{SAMPLE\_1X}}
+\index{SAMPLE\_1X@{SAMPLE\_1X}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{SAMPLE\_1X}{SAMPLE\_1X}}
+{\footnotesize\ttfamily \#define SAMPLE\+\_\+1X~0x00}
+
+\Hypertarget{mcp__can__dfs_8h_afbe5be9c5672ebcb582105e2f413a8e6}\label{mcp__can__dfs_8h_afbe5be9c5672ebcb582105e2f413a8e6} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!SAMPLE\_3X@{SAMPLE\_3X}}
+\index{SAMPLE\_3X@{SAMPLE\_3X}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{SAMPLE\_3X}{SAMPLE\_3X}}
+{\footnotesize\ttfamily \#define SAMPLE\+\_\+3X~0x40}
+
+\Hypertarget{mcp__can__dfs_8h_a4ca4a1b715398a83c454f53a3fd79eb1}\label{mcp__can__dfs_8h_a4ca4a1b715398a83c454f53a3fd79eb1} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!SJW1@{SJW1}}
+\index{SJW1@{SJW1}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{SJW1}{SJW1}}
+{\footnotesize\ttfamily \#define SJW1~0x00}
+
+\Hypertarget{mcp__can__dfs_8h_acb0116aef65be06e41b189522e4e91ed}\label{mcp__can__dfs_8h_acb0116aef65be06e41b189522e4e91ed} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!SJW2@{SJW2}}
+\index{SJW2@{SJW2}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{SJW2}{SJW2}}
+{\footnotesize\ttfamily \#define SJW2~0x40}
+
+\Hypertarget{mcp__can__dfs_8h_a68b22832f20a89ae90e258fd4f192091}\label{mcp__can__dfs_8h_a68b22832f20a89ae90e258fd4f192091} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!SJW3@{SJW3}}
+\index{SJW3@{SJW3}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{SJW3}{SJW3}}
+{\footnotesize\ttfamily \#define SJW3~0x80}
+
+\Hypertarget{mcp__can__dfs_8h_acc017a3f71fb4570b6ff1dcb747341e3}\label{mcp__can__dfs_8h_acc017a3f71fb4570b6ff1dcb747341e3} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!SJW4@{SJW4}}
+\index{SJW4@{SJW4}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{SJW4}{SJW4}}
+{\footnotesize\ttfamily \#define SJW4~0x\+C0}
+
+\Hypertarget{mcp__can__dfs_8h_a0d367e58d4db2e4d3cb2f590829bad61}\label{mcp__can__dfs_8h_a0d367e58d4db2e4d3cb2f590829bad61} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!SOF\_DISABLE@{SOF\_DISABLE}}
+\index{SOF\_DISABLE@{SOF\_DISABLE}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{SOF\_DISABLE}{SOF\_DISABLE}}
+{\footnotesize\ttfamily \#define SOF\+\_\+\+DISABLE~0x00}
+
+\Hypertarget{mcp__can__dfs_8h_ae2c366800285be68658d0423c48095d8}\label{mcp__can__dfs_8h_ae2c366800285be68658d0423c48095d8} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!SOF\_ENABLE@{SOF\_ENABLE}}
+\index{SOF\_ENABLE@{SOF\_ENABLE}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{SOF\_ENABLE}{SOF\_ENABLE}}
+{\footnotesize\ttfamily \#define SOF\+\_\+\+ENABLE~0x80}
+
+\Hypertarget{mcp__can__dfs_8h_a7c97ef3732493d3c104e15761a8ae799}\label{mcp__can__dfs_8h_a7c97ef3732493d3c104e15761a8ae799} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!SPICS@{SPICS}}
+\index{SPICS@{SPICS}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{SPICS}{SPICS}}
+{\footnotesize\ttfamily \#define SPICS~10}
+
+\Hypertarget{mcp__can__dfs_8h_a7cf200ffe39222d84a96caa45ea0974b}\label{mcp__can__dfs_8h_a7cf200ffe39222d84a96caa45ea0974b} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!TIMEOUTVALUE@{TIMEOUTVALUE}}
+\index{TIMEOUTVALUE@{TIMEOUTVALUE}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{TIMEOUTVALUE}{TIMEOUTVALUE}}
+{\footnotesize\ttfamily \#define TIMEOUTVALUE~50}
+
+\Hypertarget{mcp__can__dfs_8h_a9ebaab776c2140a706d54c6f8f8840ee}\label{mcp__can__dfs_8h_a9ebaab776c2140a706d54c6f8f8840ee} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!WAKFIL\_DISABLE@{WAKFIL\_DISABLE}}
+\index{WAKFIL\_DISABLE@{WAKFIL\_DISABLE}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{WAKFIL\_DISABLE}{WAKFIL\_DISABLE}}
+{\footnotesize\ttfamily \#define WAKFIL\+\_\+\+DISABLE~0x00}
+
+\Hypertarget{mcp__can__dfs_8h_a5a29147670f76a2492e290f0b446b7ce}\label{mcp__can__dfs_8h_a5a29147670f76a2492e290f0b446b7ce} 
+\index{mcp\_can\_dfs.h@{mcp\_can\_dfs.h}!WAKFIL\_ENABLE@{WAKFIL\_ENABLE}}
+\index{WAKFIL\_ENABLE@{WAKFIL\_ENABLE}!mcp\_can\_dfs.h@{mcp\_can\_dfs.h}}
+\doxysubsubsection{\texorpdfstring{WAKFIL\_ENABLE}{WAKFIL\_ENABLE}}
+{\footnotesize\ttfamily \#define WAKFIL\+\_\+\+ENABLE~0x40}
+

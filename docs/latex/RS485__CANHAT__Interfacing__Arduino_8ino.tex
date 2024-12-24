@@ -1,0 +1,134 @@
+\doxysection{RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino.\+ino File Reference}
+\hypertarget{RS485__CANHAT__Interfacing__Arduino_8ino}{}\label{RS485__CANHAT__Interfacing__Arduino_8ino}\index{RS485\_CANHAT\_Interfacing\_Arduino.ino@{RS485\_CANHAT\_Interfacing\_Arduino.ino}}
+{\ttfamily \#include $<$mcp\+\_\+can.\+h$>$}\newline
+{\ttfamily \#include $<$SPI.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{RS485__CANHAT__Interfacing__Arduino_8ino_ae4617499c61ae6c8bf1e9433b5436b8d}{MCP2515\+\_\+\+ISR}} ()
+\begin{DoxyCompactList}\small\item\em Interrupt Service Routine for MCP2515. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{RS485__CANHAT__Interfacing__Arduino_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\begin{DoxyCompactList}\small\item\em Setup function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{RS485__CANHAT__Interfacing__Arduino_8ino_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\begin{DoxyCompactList}\small\item\em Loop function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMCP__CAN}{MCP\+\_\+\+CAN}} \mbox{\hyperlink{RS485__CANHAT__Interfacing__Arduino_8ino_a093313a91e558fd0273c4a91070c6c3b}{CAN}} (10)
+\begin{DoxyCompactList}\small\item\em CAN-\/\+BUS Shield Initialisation. \end{DoxyCompactList}\item 
+const unsigned long \mbox{\hyperlink{RS485__CANHAT__Interfacing__Arduino_8ino_a09f97bd739f2e6ad7f715691adbf8dc1}{BATTERY\+\_\+\+CHARGE\+\_\+\+CAN\+\_\+\+ID}} = 0x100
+\begin{DoxyCompactList}\small\item\em I\textquotesingle{}ll store the device ID of the battery info sender device into {\ttfamily BATTERY\+\_\+\+CHARGE\+\_\+\+CAN\+\_\+\+ID}. Assume any value say 0x100\texorpdfstring{$\ast$}{*}/. \end{DoxyCompactList}\item 
+const float \mbox{\hyperlink{RS485__CANHAT__Interfacing__Arduino_8ino_abd34c2c9f838ac6dfba8d2f600f87e7f}{BATTERY\+\_\+\+SCALE}} = 100.\+0
+\begin{DoxyCompactList}\small\item\em We normally use percentage for knowing battery charge, so I\textquotesingle{}ll use this Scale factor. \end{DoxyCompactList}\item 
+volatile unsigned char \mbox{\hyperlink{RS485__CANHAT__Interfacing__Arduino_8ino_ae6d3c4933a8510550df9906fee633565}{Flag\+\_\+\+Recv}} = 0
+\begin{DoxyCompactList}\small\item\em Interrupt flag to indicate data reception. \end{DoxyCompactList}\item 
+unsigned char \mbox{\hyperlink{RS485__CANHAT__Interfacing__Arduino_8ino_a8bb3e1dd5fd30402c69fd8a9f7dd0950}{len}} = 0
+\begin{DoxyCompactList}\small\item\em Character length of received CAN data. \end{DoxyCompactList}\item 
+unsigned char \mbox{\hyperlink{RS485__CANHAT__Interfacing__Arduino_8ino_af5995a340a85e31e0916dd382c9b8eda}{buf}} \mbox{[}8\mbox{]}
+\begin{DoxyCompactList}\small\item\em 8 char buffer to store received CAN data \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{RS485__CANHAT__Interfacing__Arduino_8ino_afe461d27b9c48d5921c00d521181f12f}\label{RS485__CANHAT__Interfacing__Arduino_8ino_afe461d27b9c48d5921c00d521181f12f} 
+\index{RS485\_CANHAT\_Interfacing\_Arduino.ino@{RS485\_CANHAT\_Interfacing\_Arduino.ino}!loop@{loop}}
+\index{loop@{loop}!RS485\_CANHAT\_Interfacing\_Arduino.ino@{RS485\_CANHAT\_Interfacing\_Arduino.ino}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Loop function. 
+
+Main program loop to check for and process received CAN messages. Extracts and logs battery charge information if the CAN ID corresponding to battery charge, is received. \texorpdfstring{$<$}{<} Clears interrupt flag
+
+\texorpdfstring{$<$}{<} Combines bytes if charge is sent as 16-\/bit value
+
+\texorpdfstring{$<$}{<} Scales charge value to percentage\Hypertarget{RS485__CANHAT__Interfacing__Arduino_8ino_ae4617499c61ae6c8bf1e9433b5436b8d}\label{RS485__CANHAT__Interfacing__Arduino_8ino_ae4617499c61ae6c8bf1e9433b5436b8d} 
+\index{RS485\_CANHAT\_Interfacing\_Arduino.ino@{RS485\_CANHAT\_Interfacing\_Arduino.ino}!MCP2515\_ISR@{MCP2515\_ISR}}
+\index{MCP2515\_ISR@{MCP2515\_ISR}!RS485\_CANHAT\_Interfacing\_Arduino.ino@{RS485\_CANHAT\_Interfacing\_Arduino.ino}}
+\doxysubsubsection{\texorpdfstring{MCP2515\_ISR()}{MCP2515\_ISR()}}
+{\footnotesize\ttfamily void MCP2515\+\_\+\+ISR (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Interrupt Service Routine for MCP2515. 
+
+Sets interrupt flag to 1 in order to indicate CAN message is received. \Hypertarget{RS485__CANHAT__Interfacing__Arduino_8ino_a4fc01d736fe50cf5b977f755b675f11d}\label{RS485__CANHAT__Interfacing__Arduino_8ino_a4fc01d736fe50cf5b977f755b675f11d} 
+\index{RS485\_CANHAT\_Interfacing\_Arduino.ino@{RS485\_CANHAT\_Interfacing\_Arduino.ino}!setup@{setup}}
+\index{setup@{setup}!RS485\_CANHAT\_Interfacing\_Arduino.ino@{RS485\_CANHAT\_Interfacing\_Arduino.ino}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Setup function. 
+
+Initialises the CAN-\/\+BUS Shield and Serial communication. Attaches an interrupt to handle CAN message reception. \texorpdfstring{$<$}{<} Initialise Serial Monitor at 115200 baud rate
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{RS485__CANHAT__Interfacing__Arduino_8ino_a09f97bd739f2e6ad7f715691adbf8dc1}\label{RS485__CANHAT__Interfacing__Arduino_8ino_a09f97bd739f2e6ad7f715691adbf8dc1} 
+\index{RS485\_CANHAT\_Interfacing\_Arduino.ino@{RS485\_CANHAT\_Interfacing\_Arduino.ino}!BATTERY\_CHARGE\_CAN\_ID@{BATTERY\_CHARGE\_CAN\_ID}}
+\index{BATTERY\_CHARGE\_CAN\_ID@{BATTERY\_CHARGE\_CAN\_ID}!RS485\_CANHAT\_Interfacing\_Arduino.ino@{RS485\_CANHAT\_Interfacing\_Arduino.ino}}
+\doxysubsubsection{\texorpdfstring{BATTERY\_CHARGE\_CAN\_ID}{BATTERY\_CHARGE\_CAN\_ID}}
+{\footnotesize\ttfamily const unsigned long BATTERY\+\_\+\+CHARGE\+\_\+\+CAN\+\_\+\+ID = 0x100}
+
+
+
+I\textquotesingle{}ll store the device ID of the battery info sender device into {\ttfamily BATTERY\+\_\+\+CHARGE\+\_\+\+CAN\+\_\+\+ID}. Assume any value say 0x100\texorpdfstring{$\ast$}{*}/. 
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2karthik_2snap_2arduino_285_2Arduino_2RS485_CANHAT_Interfacing_Arduino_2RS485_CANHAT_Interfacing_Arduino_8ino-example}{/home/karthik/snap/arduino/85/\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino.\+ino}}.\end{Desc}
+\Hypertarget{RS485__CANHAT__Interfacing__Arduino_8ino_abd34c2c9f838ac6dfba8d2f600f87e7f}\label{RS485__CANHAT__Interfacing__Arduino_8ino_abd34c2c9f838ac6dfba8d2f600f87e7f} 
+\index{RS485\_CANHAT\_Interfacing\_Arduino.ino@{RS485\_CANHAT\_Interfacing\_Arduino.ino}!BATTERY\_SCALE@{BATTERY\_SCALE}}
+\index{BATTERY\_SCALE@{BATTERY\_SCALE}!RS485\_CANHAT\_Interfacing\_Arduino.ino@{RS485\_CANHAT\_Interfacing\_Arduino.ino}}
+\doxysubsubsection{\texorpdfstring{BATTERY\_SCALE}{BATTERY\_SCALE}}
+{\footnotesize\ttfamily const float BATTERY\+\_\+\+SCALE = 100.\+0}
+
+
+
+We normally use percentage for knowing battery charge, so I\textquotesingle{}ll use this Scale factor. 
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2karthik_2snap_2arduino_285_2Arduino_2RS485_CANHAT_Interfacing_Arduino_2RS485_CANHAT_Interfacing_Arduino_8ino-example}{/home/karthik/snap/arduino/85/\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino.\+ino}}.\end{Desc}
+\Hypertarget{RS485__CANHAT__Interfacing__Arduino_8ino_af5995a340a85e31e0916dd382c9b8eda}\label{RS485__CANHAT__Interfacing__Arduino_8ino_af5995a340a85e31e0916dd382c9b8eda} 
+\index{RS485\_CANHAT\_Interfacing\_Arduino.ino@{RS485\_CANHAT\_Interfacing\_Arduino.ino}!buf@{buf}}
+\index{buf@{buf}!RS485\_CANHAT\_Interfacing\_Arduino.ino@{RS485\_CANHAT\_Interfacing\_Arduino.ino}}
+\doxysubsubsection{\texorpdfstring{buf}{buf}}
+{\footnotesize\ttfamily unsigned char buf\mbox{[}8\mbox{]}}
+
+
+
+8 char buffer to store received CAN data 
+
+\Hypertarget{RS485__CANHAT__Interfacing__Arduino_8ino_a093313a91e558fd0273c4a91070c6c3b}\label{RS485__CANHAT__Interfacing__Arduino_8ino_a093313a91e558fd0273c4a91070c6c3b} 
+\index{RS485\_CANHAT\_Interfacing\_Arduino.ino@{RS485\_CANHAT\_Interfacing\_Arduino.ino}!CAN@{CAN}}
+\index{CAN@{CAN}!RS485\_CANHAT\_Interfacing\_Arduino.ino@{RS485\_CANHAT\_Interfacing\_Arduino.ino}}
+\doxysubsubsection{\texorpdfstring{CAN}{CAN}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMCP__CAN}{MCP\+\_\+\+CAN}} CAN(10) (\begin{DoxyParamCaption}\item[{10}]{ }\end{DoxyParamCaption})}
+
+
+
+CAN-\/\+BUS Shield Initialisation. 
+
+CAN object with CS set to pin 10 \Hypertarget{RS485__CANHAT__Interfacing__Arduino_8ino_ae6d3c4933a8510550df9906fee633565}\label{RS485__CANHAT__Interfacing__Arduino_8ino_ae6d3c4933a8510550df9906fee633565} 
+\index{RS485\_CANHAT\_Interfacing\_Arduino.ino@{RS485\_CANHAT\_Interfacing\_Arduino.ino}!Flag\_Recv@{Flag\_Recv}}
+\index{Flag\_Recv@{Flag\_Recv}!RS485\_CANHAT\_Interfacing\_Arduino.ino@{RS485\_CANHAT\_Interfacing\_Arduino.ino}}
+\doxysubsubsection{\texorpdfstring{Flag\_Recv}{Flag\_Recv}}
+{\footnotesize\ttfamily volatile unsigned char Flag\+\_\+\+Recv = 0}
+
+
+
+Interrupt flag to indicate data reception. 
+
+\Hypertarget{RS485__CANHAT__Interfacing__Arduino_8ino_a8bb3e1dd5fd30402c69fd8a9f7dd0950}\label{RS485__CANHAT__Interfacing__Arduino_8ino_a8bb3e1dd5fd30402c69fd8a9f7dd0950} 
+\index{RS485\_CANHAT\_Interfacing\_Arduino.ino@{RS485\_CANHAT\_Interfacing\_Arduino.ino}!len@{len}}
+\index{len@{len}!RS485\_CANHAT\_Interfacing\_Arduino.ino@{RS485\_CANHAT\_Interfacing\_Arduino.ino}}
+\doxysubsubsection{\texorpdfstring{len}{len}}
+{\footnotesize\ttfamily unsigned char len = 0}
+
+
+
+Character length of received CAN data. 
+

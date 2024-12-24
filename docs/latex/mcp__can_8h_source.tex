@@ -1,0 +1,114 @@
+\doxysection{mcp\+\_\+can.\+h}
+\hypertarget{mcp__can_8h_source}{}\label{mcp__can_8h_source}\index{CAN\_BUS\_Shield/mcp\_can.h@{CAN\_BUS\_Shield/mcp\_can.h}}
+\mbox{\hyperlink{mcp__can_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ mcp\_can.h}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ 2012\ Copyright\ (c)\ Seeed\ Technology\ Inc.\ \ All\ right\ reserved.}}
+\DoxyCodeLine{00004\ \textcolor{comment}{}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ Author:Loovee}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ 2012-\/4-\/24}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ This\ library\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ modify\ it\ under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ \ License\ as\ published\ by\ the\ Free\ Software\ Foundation;\ either}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ \ version\ 2.1\ of\ the\ License,\ or\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00011\ \textcolor{comment}{}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ \ This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ \ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ \ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ \ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ \ License\ along\ with\ this\ library;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ \ Foundation,\ Inc.,\ 51\ Franklin\ St,\ Fifth\ Floor,\ Boston,\ MA\ \ 02110-\/}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ \ 1301\ \ USA}}
+\DoxyCodeLine{00021\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#ifndef\ \_MCP2515\_H\_}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ \_MCP2515\_H\_}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mcp__can__dfs_8h}{mcp\_can\_dfs.h}}"{}}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ MAX\_CHAR\_IN\_MESSAGE\ 8}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMCP__CAN}{MCP\_CAN}}}
+\DoxyCodeLine{00029\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00031\ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ \ \ m\_nExtFlg;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ identifier\ xxxID\ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ either\ extended\ (the\ 29\ LSB)\ */}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ or\ standard\ (the\ 11\ LSB)\ \ \ \ \ */}}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a25ff3c0f78edb856f90b536f50e7ca18}{INT32U}}\ \ m\_nID;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ can\ id\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ \ \ m\_nDlc;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ data\ length:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ \ \ m\_nDta[\mbox{\hyperlink{mcp__can_8h_a9cf3c8d6df7837d0dd21aaf822076f9c}{MAX\_CHAR\_IN\_MESSAGE}}];\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ data\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ \ \ m\_nRtr;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ rtr\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ \ \ m\_nfilhit;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00042\ \textcolor{comment}{*\ \ mcp2515\ driver\ function\ }}
+\DoxyCodeLine{00043\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00044\ \ \ \ \textcolor{comment}{//\ private:}}
+\DoxyCodeLine{00045\ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ mcp2515\_reset(\textcolor{keywordtype}{void});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ reset\ mcp2515\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ mcp2515\_readRegister(\textcolor{keyword}{const}\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ address);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ read\ mcp2515's\ register\ \ \ \ \ \ */}}
+\DoxyCodeLine{00050\ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ mcp2515\_readRegisterS(\textcolor{keyword}{const}\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ address,\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ values[],\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ n);}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{void}\ mcp2515\_setRegister(\textcolor{keyword}{const}\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ address,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ set\ mcp2515's\ register\ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ value);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ mcp2515\_setRegisterS(\textcolor{keyword}{const}\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ address,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ set\ mcp2515's\ registers\ \ \ \ \ \ */}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ values[],}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ n);}
+\DoxyCodeLine{00060\ \ \ \ \ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ mcp2515\_initCANBuffers(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00062\ \ \ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ mcp2515\_modifyRegister(\textcolor{keyword}{const}\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ address,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ set\ bit\ of\ one\ register\ \ \ \ \ \ */}}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ mask,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ data);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ mcp2515\_readStatus(\textcolor{keywordtype}{void});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ read\ mcp2515's\ Status\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ mcp2515\_setCANCTRL\_Mode(\textcolor{keyword}{const}\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ newmode);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ set\ mode\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ mcp2515\_configRate(\textcolor{keyword}{const}\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ canSpeed);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ set\ boadrate\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ mcp2515\_init(\textcolor{keyword}{const}\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ canSpeed);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ mcp2515init\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ mcp2515\_write\_id(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ mcp\_addr,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ write\ can\ id\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ ext,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{mcp__can__dfs_8h_a25ff3c0f78edb856f90b536f50e7ca18}{INT32U}}\ \textcolor{keywordtype}{id}\ );}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{void}\ mcp2515\_read\_id(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ mcp\_addr,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ read\ can\ id\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}*\ ext,}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a25ff3c0f78edb856f90b536f50e7ca18}{INT32U}}*\ \textcolor{keywordtype}{id}\ );}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ mcp2515\_write\_canMsg(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ buffer\_sidh\_addr\ );\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ write\ can\ msg\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ mcp2515\_read\_canMsg(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ buffer\_sidh\_addr);\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ read\ can\ msg\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ mcp2515\_start\_transmit(\textcolor{keyword}{const}\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ mcp\_addr);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ start\ transmit\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ mcp2515\_getNextFreeTXBuf(\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ *txbuf\_n);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ get\ Next\ free\ txbuf\ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00086\ \textcolor{comment}{*\ \ can\ operator\ function}}
+\DoxyCodeLine{00087\ \textcolor{comment}{*/}\ \ \ \ }
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ setMsg(\mbox{\hyperlink{mcp__can__dfs_8h_a25ff3c0f78edb856f90b536f50e7ca18}{INT32U}}\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ ext,\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ \mbox{\hyperlink{receive_8ino_a8bb3e1dd5fd30402c69fd8a9f7dd0950}{len}},\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ *pData);\ \ \ \ \textcolor{comment}{/*\ set\ message\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}\ \ }
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ clearMsg();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ clear\ all\ message\ to\ zero\ \ \ \ */}}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ readMsg();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ read\ message\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ sendMsg();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ send\ message\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00093\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ \mbox{\hyperlink{classMCP__CAN_a744792a91a4604e22132f787dd2114b0}{begin}}(\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ speedset);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ init\ can\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00095\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ \mbox{\hyperlink{classMCP__CAN_a1a33d004f19f528f2c09344c890e16ec}{init\_Mask}}(\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ num,\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ ext,\ \mbox{\hyperlink{mcp__can__dfs_8h_a25ff3c0f78edb856f90b536f50e7ca18}{INT32U}}\ ulData);\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ init\ Masks\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00096\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ \mbox{\hyperlink{classMCP__CAN_a6a007f4c9a76106c39e6cf646fa7f8f8}{init\_Filt}}(\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ num,\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ ext,\ \mbox{\hyperlink{mcp__can__dfs_8h_a25ff3c0f78edb856f90b536f50e7ca18}{INT32U}}\ ulData);\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ init\ filters\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ \mbox{\hyperlink{classMCP__CAN_a8609d5dc76873e583537a5b8aeeb88e0}{sendMsgBuf}}(\mbox{\hyperlink{mcp__can__dfs_8h_a25ff3c0f78edb856f90b536f50e7ca18}{INT32U}}\ \textcolor{keywordtype}{id},\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ ext,\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ \mbox{\hyperlink{receive_8ino_a8bb3e1dd5fd30402c69fd8a9f7dd0950}{len}},\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ *\mbox{\hyperlink{receive_8ino_af5995a340a85e31e0916dd382c9b8eda}{buf}});\ \ \textcolor{comment}{/*\ send\ buf\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ \mbox{\hyperlink{classMCP__CAN_a4a09b0c8d110b0e5a3900fadc7137632}{readMsgBuf}}(\mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ *\mbox{\hyperlink{receive_8ino_a8bb3e1dd5fd30402c69fd8a9f7dd0950}{len}},\ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ *\mbox{\hyperlink{receive_8ino_af5995a340a85e31e0916dd382c9b8eda}{buf}});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ read\ buf\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ \mbox{\hyperlink{classMCP__CAN_a92fbfba3df0703d5afafee64617f2fc6}{checkReceive}}(\textcolor{keywordtype}{void});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ if\ something\ received\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a135974a179e43568a0323862c6f72f17}{INT8U}}\ \mbox{\hyperlink{classMCP__CAN_adda3718c55e02a00b67ba44c20be4057}{checkError}}(\textcolor{keywordtype}{void});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ if\ something\ error\ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00101\ \ \ \ \ \mbox{\hyperlink{mcp__can__dfs_8h_a25ff3c0f78edb856f90b536f50e7ca18}{INT32U}}\ \mbox{\hyperlink{classMCP__CAN_a17db0c4bf45f6e0354c22ebb7ab218d6}{getCanId}}(\textcolor{keywordtype}{void});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ get\ can\ id\ when\ receive\ \ \ \ \ \ */}}
+\DoxyCodeLine{00102\ \};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classMCP__CAN}{MCP\_CAN}}\ \mbox{\hyperlink{mcp__can_8h_ae0f879ad16313dd3d0ae6074a887918f}{CAN}};}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00106\ \textcolor{comment}{/*********************************************************************************************************}}
+\DoxyCodeLine{00107\ \textcolor{comment}{\ \ END\ FILE}}
+\DoxyCodeLine{00108\ \textcolor{comment}{*********************************************************************************************************/}}
+
+\end{DoxyCode}

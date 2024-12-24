@@ -1,0 +1,90 @@
+\doxysection{CAN\+\_\+\+BUS\+\_\+\+Shield/example/receive/receive.ino File Reference}
+\hypertarget{receive_8ino}{}\label{receive_8ino}\index{CAN\_BUS\_Shield/example/receive/receive.ino@{CAN\_BUS\_Shield/example/receive/receive.ino}}
+{\ttfamily \#include $<$mcp\+\_\+can.\+h$>$}\newline
+{\ttfamily \#include $<$SPI.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{receive_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+void \mbox{\hyperlink{receive_8ino_ae4617499c61ae6c8bf1e9433b5436b8d}{MCP2515\+\_\+\+ISR}} ()
+\item 
+void \mbox{\hyperlink{receive_8ino_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \mbox{\hyperlink{receive_8ino_a25a5e2b8e715ec6077463e9effdcbd48}{Flag\+\_\+\+Recv}} = 0
+\item 
+unsigned char \mbox{\hyperlink{receive_8ino_a8bb3e1dd5fd30402c69fd8a9f7dd0950}{len}} = 0
+\item 
+unsigned char \mbox{\hyperlink{receive_8ino_af5995a340a85e31e0916dd382c9b8eda}{buf}} \mbox{[}8\mbox{]}
+\item 
+char \mbox{\hyperlink{receive_8ino_a40994adcd7f5d7b35baa4c864035ce84}{str}} \mbox{[}20\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{receive_8ino_afe461d27b9c48d5921c00d521181f12f}\label{receive_8ino_afe461d27b9c48d5921c00d521181f12f} 
+\index{receive.ino@{receive.ino}!loop@{loop}}
+\index{loop@{loop}!receive.ino@{receive.ino}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2karthik_2snap_2arduino_285_2Arduino_2RS485_CANHAT_Interfacing_Arduino_2RS485_CANHAT_Interfacing_Arduino_8ino-example}{/home/karthik/snap/arduino/85/\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino.\+ino}}.\end{Desc}
+\Hypertarget{receive_8ino_ae4617499c61ae6c8bf1e9433b5436b8d}\label{receive_8ino_ae4617499c61ae6c8bf1e9433b5436b8d} 
+\index{receive.ino@{receive.ino}!MCP2515\_ISR@{MCP2515\_ISR}}
+\index{MCP2515\_ISR@{MCP2515\_ISR}!receive.ino@{receive.ino}}
+\doxysubsubsection{\texorpdfstring{MCP2515\_ISR()}{MCP2515\_ISR()}}
+{\footnotesize\ttfamily void MCP2515\+\_\+\+ISR (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2karthik_2snap_2arduino_285_2Arduino_2RS485_CANHAT_Interfacing_Arduino_2RS485_CANHAT_Interfacing_Arduino_8ino-example}{/home/karthik/snap/arduino/85/\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino.\+ino}}.\end{Desc}
+\Hypertarget{receive_8ino_a4fc01d736fe50cf5b977f755b675f11d}\label{receive_8ino_a4fc01d736fe50cf5b977f755b675f11d} 
+\index{receive.ino@{receive.ino}!setup@{setup}}
+\index{setup@{setup}!receive.ino@{receive.ino}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2karthik_2snap_2arduino_285_2Arduino_2RS485_CANHAT_Interfacing_Arduino_2RS485_CANHAT_Interfacing_Arduino_8ino-example}{/home/karthik/snap/arduino/85/\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino.\+ino}}.\end{Desc}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{receive_8ino_af5995a340a85e31e0916dd382c9b8eda}\label{receive_8ino_af5995a340a85e31e0916dd382c9b8eda} 
+\index{receive.ino@{receive.ino}!buf@{buf}}
+\index{buf@{buf}!receive.ino@{receive.ino}}
+\doxysubsubsection{\texorpdfstring{buf}{buf}}
+{\footnotesize\ttfamily unsigned char buf\mbox{[}8\mbox{]}}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2karthik_2snap_2arduino_285_2Arduino_2RS485_CANHAT_Interfacing_Arduino_2RS485_CANHAT_Interfacing_Arduino_8ino-example}{/home/karthik/snap/arduino/85/\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino.\+ino}}.\end{Desc}
+\Hypertarget{receive_8ino_a25a5e2b8e715ec6077463e9effdcbd48}\label{receive_8ino_a25a5e2b8e715ec6077463e9effdcbd48} 
+\index{receive.ino@{receive.ino}!Flag\_Recv@{Flag\_Recv}}
+\index{Flag\_Recv@{Flag\_Recv}!receive.ino@{receive.ino}}
+\doxysubsubsection{\texorpdfstring{Flag\_Recv}{Flag\_Recv}}
+{\footnotesize\ttfamily unsigned char Flag\+\_\+\+Recv = 0}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2karthik_2snap_2arduino_285_2Arduino_2RS485_CANHAT_Interfacing_Arduino_2RS485_CANHAT_Interfacing_Arduino_8ino-example}{/home/karthik/snap/arduino/85/\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino.\+ino}}.\end{Desc}
+\Hypertarget{receive_8ino_a8bb3e1dd5fd30402c69fd8a9f7dd0950}\label{receive_8ino_a8bb3e1dd5fd30402c69fd8a9f7dd0950} 
+\index{receive.ino@{receive.ino}!len@{len}}
+\index{len@{len}!receive.ino@{receive.ino}}
+\doxysubsubsection{\texorpdfstring{len}{len}}
+{\footnotesize\ttfamily unsigned char len = 0}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2karthik_2snap_2arduino_285_2Arduino_2RS485_CANHAT_Interfacing_Arduino_2RS485_CANHAT_Interfacing_Arduino_8ino-example}{/home/karthik/snap/arduino/85/\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino.\+ino}}.\end{Desc}
+\Hypertarget{receive_8ino_a40994adcd7f5d7b35baa4c864035ce84}\label{receive_8ino_a40994adcd7f5d7b35baa4c864035ce84} 
+\index{receive.ino@{receive.ino}!str@{str}}
+\index{str@{str}!receive.ino@{receive.ino}}
+\doxysubsubsection{\texorpdfstring{str}{str}}
+{\footnotesize\ttfamily char str\mbox{[}20\mbox{]}}
+

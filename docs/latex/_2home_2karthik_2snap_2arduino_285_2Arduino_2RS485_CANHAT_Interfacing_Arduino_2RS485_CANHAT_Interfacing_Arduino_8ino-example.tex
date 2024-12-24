@@ -1,0 +1,99 @@
+\doxysection{/home/karthik/snap/arduino/85/\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino/\+RS485\+\_\+\+CANHAT\+\_\+\+Interfacing\+\_\+\+Arduino.\+ino}
+\hypertarget{_2home_2karthik_2snap_2arduino_285_2Arduino_2RS485_CANHAT_Interfacing_Arduino_2RS485_CANHAT_Interfacing_Arduino_8ino-example}{}\label{_2home_2karthik_2snap_2arduino_285_2Arduino_2RS485_CANHAT_Interfacing_Arduino_2RS485_CANHAT_Interfacing_Arduino_8ino-example}Expected CAN message data format for battery charge monitoring.
+
+Expected CAN message data format for battery charge monitoring.-\/ {\bfseries{CAN ID}}\+: {\ttfamily 0x100} (as example desired Battery charge sender device ID).
+\begin{DoxyItemize}
+\item {\bfseries{Data Length}}\+: 2 bytes.
+\item {\bfseries{Data Payload}}\+:
+\begin{DoxyItemize}
+\item {\bfseries{Byte 0}}\+: Lower byte of battery charge value.
+\item {\bfseries{Byte 1}}\+: Higher byte of battery charge value.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+2-\/byte data payload will be combined into a single 16-\/bit integer representing the battery charge. This value will then be scaled by {\ttfamily BATTERY\+\_\+\+SCALE} to convert it into a percentage. EXAMPLE output of expected data format is provided below, with some raw values assumed for the sake of example demo.
+
+// -\/ CAN\+\_\+\+BUS GET DATA -\/ // CAN ID\+: 0x100 // Data Length\+: 2 // Data\+: \mbox{[}0x\+C8, 0x00\mbox{]} // Battery Charge\+: 2.\+00 \%
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{mcp__can_8h}{mcp\_can.h}}>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <SPI.h>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{classMCP__CAN}{MCP\_CAN}}\ \mbox{\hyperlink{mcp__can_8cpp_ae0f879ad16313dd3d0ae6074a887918f}{CAN}}(10);\ }
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{RS485__CANHAT__Interfacing__Arduino_8ino_a09f97bd739f2e6ad7f715691adbf8dc1}{BATTERY\_CHARGE\_CAN\_ID}}\ =\ 0x100;\ }
+\DoxyCodeLine{\textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{RS485__CANHAT__Interfacing__Arduino_8ino_abd34c2c9f838ac6dfba8d2f600f87e7f}{BATTERY\_SCALE}}\ =\ 100.0;\ }
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ Variables}}
+\DoxyCodeLine{\textcolor{keyword}{volatile}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{receive_8ino_a25a5e2b8e715ec6077463e9effdcbd48}{Flag\_Recv}}\ =\ 0;\ }
+\DoxyCodeLine{\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{receive_8ino_a8bb3e1dd5fd30402c69fd8a9f7dd0950}{len}}\ =\ 0;\ }
+\DoxyCodeLine{\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{receive_8ino_af5995a340a85e31e0916dd382c9b8eda}{buf}}[8];\ }
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{receive_8ino_ae4617499c61ae6c8bf1e9433b5436b8d}{MCP2515\_ISR}}()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{receive_8ino_a25a5e2b8e715ec6077463e9effdcbd48}{Flag\_Recv}}\ =\ 1;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{receive_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}}()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ Serial.begin(115200);\ }
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*Initialize\ the\ CAN-\/BUS\ Shield}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ *\ Why\ 500\ kbps\ when\ module\ supports\ upto\ 1Mbps?\ Just\ avoids\ signal\ integrity\ issues\ in\ PCB.}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ *\ It\ also\ allows\ us\ to\ use\ longer\ length\ (approx\ 100\ meteres)}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ *\ I\ wouldn't\ want\ to\ overload\ the\ CAN\ Transceiver,\ I\ think\ 500Kbps\ suits\ well\ for\ our\ application\ (access\ battery\ charge)}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{mcp__can__dfs_8h_a828ca6464d281c8b2a780169ac2c6318}{CAN\_OK}}\ !=\ \mbox{\hyperlink{mcp__can_8cpp_ae0f879ad16313dd3d0ae6074a887918f}{CAN}}.\mbox{\hyperlink{classMCP__CAN_a744792a91a4604e22132f787dd2114b0}{begin}}(\mbox{\hyperlink{mcp__can__dfs_8h_a838186bc9587b888bf99f730e69fc70d}{CAN\_500KBPS}}))}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}CAN\ BUS\ Shield\ initialization\ failed.\ Retrying..."{}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ delay(100);\ \textcolor{comment}{//\ Power\ on\ software\ delay\ +\ Initialisation\ delay\ +\ Retry\ delay}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ Serial.println(\textcolor{stringliteral}{"{}CAN\ BUS\ Shield\ initialized\ successfully."{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{/*\ Attach\ interrupt\ that\ triggers\ during\ clock\ falling\ edge.\ This\ is\ to\ handle\ CAN\ message\ reception}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ *\ \ Interrupt\ Pin\ =\ 0\ is\ the\ Arduino\ Pin\ 2.\ So\ we\ connect\ the\ INT\ pin\ of\ the\ module\ to\ Pin\ 2\ of\ our\ Arduino}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ *\ \ This\ executes\ \`{}MCP2515\_ISR`\ function\ to\ set\ receive\ interrupt\ flag\ initially.\ }}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{\ \ \ \ attachInterrupt(0,\ \mbox{\hyperlink{receive_8ino_ae4617499c61ae6c8bf1e9433b5436b8d}{MCP2515\_ISR}},\ FALLING);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{receive_8ino_afe461d27b9c48d5921c00d521181f12f}{loop}}()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Check\ if\ a\ CAN\ message\ was\ received}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{receive_8ino_a25a5e2b8e715ec6077463e9effdcbd48}{Flag\_Recv}})}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{receive_8ino_a25a5e2b8e715ec6077463e9effdcbd48}{Flag\_Recv}}\ =\ 0;\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{/*\ }}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ *\ \ To\ read\ received\ CAN\ messsage}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ *\ \ Iterates\ over\ the\ payload\ \`{}m\_nDta`\ (array\ with\ CAN\ message\ dat\ bytes)\ for\ copying\ valid\ bytes\ into\ the\ buffer\ array\ \`{}buf`\ I\ provided.}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \mbox{\hyperlink{mcp__can_8cpp_ae0f879ad16313dd3d0ae6074a887918f}{CAN}}.\mbox{\hyperlink{classMCP__CAN_a4a09b0c8d110b0e5a3900fadc7137632}{readMsgBuf}}(\&\mbox{\hyperlink{receive_8ino_a8bb3e1dd5fd30402c69fd8a9f7dd0950}{len}},\ \mbox{\hyperlink{receive_8ino_af5995a340a85e31e0916dd382c9b8eda}{buf}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ canId\ =\ \mbox{\hyperlink{mcp__can_8cpp_ae0f879ad16313dd3d0ae6074a887918f}{CAN}}.\mbox{\hyperlink{classMCP__CAN_a17db0c4bf45f6e0354c22ebb7ab218d6}{getCanId}}();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Logs\ CAN\ ID\ and\ length\ of\ data\ received\ of\ "{}any"{}\ sender\ that\ has\ sent\ data\ }}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Serial.println(\textcolor{stringliteral}{"{}-\/\ CAN\_BUS\ GET\ DATA\ -\/"{}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}CAN\ ID:\ "{}});\ Serial.println(canId,\ HEX);\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}Data\ Length:\ "{}});\ Serial.println(\mbox{\hyperlink{receive_8ino_a8bb3e1dd5fd30402c69fd8a9f7dd0950}{len}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}Data:\ "{}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{receive_8ino_a8bb3e1dd5fd30402c69fd8a9f7dd0950}{len}};\ i++)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ Serial.print(\mbox{\hyperlink{receive_8ino_af5995a340a85e31e0916dd382c9b8eda}{buf}}[i],\ HEX);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}\ "{}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Serial.println();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Process\ battery\ charge\ data\ if\ CAN\ ID\ matches\ our\ sender\ of\ interest}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (canId\ ==\ \mbox{\hyperlink{RS485__CANHAT__Interfacing__Arduino_8ino_a09f97bd739f2e6ad7f715691adbf8dc1}{BATTERY\_CHARGE\_CAN\_ID}})}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ batteryCharge\ =\ \mbox{\hyperlink{receive_8ino_af5995a340a85e31e0916dd382c9b8eda}{buf}}[0]\ +\ (\mbox{\hyperlink{receive_8ino_af5995a340a85e31e0916dd382c9b8eda}{buf}}[1]\ <<\ 8);\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ batteryCharge\ /=\ \mbox{\hyperlink{RS485__CANHAT__Interfacing__Arduino_8ino_abd34c2c9f838ac6dfba8d2f600f87e7f}{BATTERY\_SCALE}};\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ Serial.print(\textcolor{stringliteral}{"{}Battery\ Charge:\ "{}});\ Serial.print(batteryCharge);\ Serial.println(\textcolor{stringliteral}{"{}\ \%"{}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+
+\end{DoxyCodeInclude}
+ 
