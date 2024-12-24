@@ -1,5 +1,7 @@
 # RS485 CANHAT Interfacing with Arduino to Acess Battery Charge Information
 
+Doxygen Generated Documentation can be accessed at: [karthikdani.github.io/RS485_CANHAT_Interface_Arduino](https://karthikdani.github.io/RS485_CANHAT_Interface_Arduino)
+
 - This Project is a solution to solve the interfacing RS485 CANHAT (used [RS485 CANHAT from Waveshare](https://www.waveshare.com/rs485-can-hat.htm) as reference) and Arduino due to frequency mismatch. 
 
 - I use an Arduino-compatible module [MCP2515 CAN Module TJA1050 Receiver SPI 51 Single Chip Program Routine Arduino](https://robu.in/product/mcp2515-can-module-tja1050-receiver-spi-51-single-chip-program-routine-arduino/?gad_source=1&gclid=Cj0KCQiAsaS7BhDPARIsAAX5cSCodMTumVW66Wz2qvzYIydVJiuprp_vA4tSuAzYT87YtuYtevEOqtQaAkcpEALw_wcB) to monitor and log battery charge information transmitted over our RS485 CANHAT.
